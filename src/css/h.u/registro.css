@@ -1,0 +1,115 @@
+.body-register {
+  background: url(../../image/fondo-principal-grande.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.main-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-register {
+  width: 100vw;
+  text-align: center;
+}
+
+.logo-register {
+  width: 80%;
+  text-align: center;
+}
+
+.title-greetings {
+  font-size: 2rem;
+}
+.sub-title {
+  font-size: 1.5rem;
+}
+.title-greetings,
+.sub-title {
+  font-family: "Julius Sans One", sans-serif;
+  padding: 0 10%;
+  margin-bottom: 1rem;
+}
+
+.container-form {
+  width: 82%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-form-items {
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--color-secondary);
+  padding: 10% 13%;
+  border-radius: 25px;
+  border: 5px solid white;
+}
+
+.form-item {
+  font-family: "Julius Sans One", sans-serif;
+  display: block;
+  margin-bottom: 3%;
+}
+
+.form-input {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  height: 35px;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.btn-register {
+  text-align: center;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  width: 50%;
+  border: none;
+  padding: 10px;
+  margin-top: 1rem;
+}
+
+.container-or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.linea {
+  background-color: #9f9393;
+  height: 1px;
+  width: 140px;
+}
+.or {
+  padding: 5px;
+  color: #9f9393;
+}
+
+.btn-register-google {
+  /* position: relative; */
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  width: 50%;
+  padding: 0 8dp;
+  height: 30px;
+  margin-left: 12px;
+  display: flex;
+}
+
+.logo-google {
+  margin-right: 12px;
+  /* position: absolute; */
+  width: 18px;
+  padding: 10px;
+  border-right: 1px solid black;
+}

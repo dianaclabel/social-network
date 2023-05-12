@@ -7,4 +7,5 @@ import { registerTemplate } from "./template/registro.js";
 const templateRegister = document.createElement("template");
 templateRegister.innerHTML = registerTemplate;
 
+document.body.classList.add("body-register");
 document.body.prepend(templateRegister.content);
