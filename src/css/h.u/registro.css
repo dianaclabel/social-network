@@ -2,30 +2,26 @@
   background: url(../../image/fondo-principal-grande.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  min-height: 100vh;
 }
 
-.main-register {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .header-register {
   width: 100vw;
   text-align: center;
+  margin-top: 2.3rem;
 }
 
 .logo-register {
-  width: 80%;
+  width: 65%;
   text-align: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .title-greetings {
   font-size: 2rem;
 }
 .sub-title {
-  font-size: 1.5rem;
+  font-size: 22.5px;
 }
 .title-greetings,
 .sub-title {
@@ -49,6 +45,7 @@
   padding: 10% 13%;
   border-radius: 25px;
   border: 5px solid white;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .form-item {
@@ -71,11 +68,16 @@
   background-color: var(--color-primary);
   color: white;
   font-size: 1.3rem;
-  border-radius: 15px;
-  width: 50%;
+  /* probable cambio */
+  border-radius: 23px;
+  width: 70%;
+  height: 59px;
   border: none;
   padding: 10px;
   margin-top: 1rem;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 800;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .container-or {
@@ -91,25 +93,63 @@
   width: 140px;
 }
 .or {
-  padding: 5px;
+  padding: 8px;
   color: #9f9393;
+  font-size: 20px;
 }
 
 .btn-register-google {
   /* position: relative; */
   font-family: "Roboto", sans-serif;
   font-size: 14px;
-  width: 50%;
+  width: 60%;
   padding: 0 8dp;
-  height: 30px;
+  height: 40px;
   margin-left: 12px;
   display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 700;
+  margin: 0 auto;
 }
 
-.logo-google {
+.container-logo {
+  width: 40px;
+  border-right: 1px solid rgba(0, 0, 0, 0.44);
   margin-right: 12px;
-  /* position: absolute; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-google {
   width: 18px;
-  padding: 10px;
-  border-right: 1px solid black;
+  object-fit: fill;
+}
+
+.terms {
+  font-size: 12px;
+  font-family: "Inder", sans-serif;
+  padding: 5% 20%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.bold-terms {
+  color: rgba(254, 153, 1, 0.76);
+}
+
+.question-register {
+  font-family: "Inder", sans-serif;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0 auto;
+  width: 268px;
+}
+
+.question-login {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
 }

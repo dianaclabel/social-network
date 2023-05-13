@@ -2,7 +2,7 @@ export const registerTemplate = /*html*/ `
     <header class="header-register">
         <img  class="logo-register" src="../../image/logo.png" alt="logo">
     </header>
-    <main class="main-register">
+    <main>
         <h1 class="title-greetings">Hola!</h1>
         <h2 class="sub-title">Crea una cuenta nueva</h2>
         <form action="" class="container-form">
@@ -25,14 +25,16 @@ export const registerTemplate = /*html*/ `
         </div>
         
         <button class="btn-register-google">
+            <div class="container-logo">
                 <img src="../../image/icon-google.png" alt="logo-google" class="logo-google">
+            </div>
           
-            <p class="btn-titulo">Registrarse con google</p>
+            <p >Registrarse con google</p>
             
         </button>
 
-        <p>Al registrarte aceptas los <b>términos de servicio</b> y <b>la política de privacidad</b></p>
-        <p>¿Ya tienes cuenta? <b>Inicio de sesion</b></p>
+        <p class="terms">Al registrarte aceptas los <b class="bold-terms">términos de servicio</b> y <b class="bold-terms">la política de privacidad</b></p>
+        <p class="question-register">¿Ya tienes cuenta? <a href="/" class="question-login">Inicio de sesion</a></p>
         
     </main>
 `;

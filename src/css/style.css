@@ -7,6 +7,6 @@
 }
 
 :root {
-  --color-primary: #f0a04b;
+  --color-primary: rgba(254, 152, 1, 1);
   --color-secondary: #fad69e;
 }
