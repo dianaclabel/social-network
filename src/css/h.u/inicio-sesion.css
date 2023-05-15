@@ -1,0 +1,106 @@
+/*.body-register {
+  background: url(../../image/fondo-principal-grande.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}*/
+
+.header-login {
+  width: 100vw;
+  text-align: center;
+  margin-top: 2.3rem;
+}
+.logo-register {
+  width: 65%;
+  text-align: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.main-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-greetings {
+  margin: 1rem auto;
+}
+.container-form-login {
+  width: 82%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-form-items-login {
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--color-third-verdeazul);
+  padding: 10% 13%;
+  border-radius: 25px;
+  border: 5px solid white;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.form-login {
+  font-family: "Julius Sans One", sans-serif;
+  display: block;
+  margin-bottom: 3%;
+}
+
+.form-inputLogin {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  height: 35px;
+  width: 100%;
+  margin-bottom: 5%;
+}
+.forgot {
+  font-family: "Julius Sans One", sans-serif;
+}
+.btn-login {
+  text-align: center;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 23px;
+  width: 70%;
+  height: 59px;
+  border: none;
+  padding: 10px;
+  margin-top: 1rem;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 800;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.container-or {
+  margin: 1rem;
+}
+
+.btn-login-google {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  width: 60%;
+  height: 40px;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 700;
+  margin: 0 auto;
+  padding: 0 8dp;
+}
+.question-register {
+  font-family: "Inder", sans-serif;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  width: 268px;
+}
+.question-login {
+  margin-left: 5px;
+}
