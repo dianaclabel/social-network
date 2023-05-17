@@ -1,4 +1,4 @@
-export const loginTemplate = /*html*/ `
+export const loginTemplate = /* html */ `
 <header class="header-login">
 <img  class="logo-register" src="../../image/logo.png" alt="logo">
     </header>
