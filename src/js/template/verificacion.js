@@ -4,7 +4,7 @@ export const verification = /* html */`
     </header>
 
     <main class="main-verification">
-        <h1 class="title-greetings"> Bienvenid@</h1>
+        <h1 class="titleGreetings"> Bienvenid@</h1>
         
         <div class="container-check">
             <p class="paragraphVerication">Te haz registrado Correctamente</p>
