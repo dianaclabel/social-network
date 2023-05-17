@@ -34,5 +34,5 @@ export const loginTemplate = /* html */ `
         
         <p class="question-register">¿No tienes una cuenta?<a href="/" class="question-login">Registrarte</a></p>
         
-    </main>
-    `;
+    </main>;
+`;
