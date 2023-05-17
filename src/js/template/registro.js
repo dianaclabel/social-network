@@ -1,4 +1,4 @@
-export const registerTemplate = /*html*/ `
+export const registerTemplate = /* html */ `
     <header class="header-register">
         <img  class="logo-register" src="../../image/logo.png" alt="logo">
     </header>
@@ -10,13 +10,13 @@ export const registerTemplate = /*html*/ `
                 <label for="" class="form-item">Nombre</label>
                 <input type="text" class="form-input">
                 <label for="" class="form-item">Correo</label>
-                <input type="email" class="form-input">
+                <input type="email" class="form-input" id="emailRegister">
                 <label for="" class="form-item">Contraseña</label>
-                <input type="password" class="form-input">
+                <input type="password" class="form-input" id="passwordRegister">
                 <label for="" class="form-item">Verificar contraseña</label>
-                <input type="password" class="form-input">
+                <input type="password" class="form-input" id="passwordVerifyRegister">
             </div>
-            <input type="button" value="Registrarse" class="btn-register">
+            <input type="button" value="Registrarse" class="btn-register" id="btnRegister">
         </form>
         <div class="container-or">
             <div class="linea"></div>
