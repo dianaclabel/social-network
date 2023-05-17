@@ -41,5 +41,9 @@
     "createdAt": "2023-04-04T20:41:27.023Z",
     "version": "6.1.1",
     "commit": "ee8564d1261b2e9c9842d13f9ac49b2624b2ee74"
+  },
+  "dependencies": {
+    "firebase": "^9.22.0",
+    "firebase-tools": "^12.0.1"
   }
 }
