@@ -2,10 +2,12 @@ import {
   renderRegisterTemplate,
   renderLoginTemplate,
   renderVerificationTemplate,
-} from "./main";
-import { loginTemplate } from "./routes/inicio-sesion";
-import { registerTemplate } from "./routes/registro";
-import { verification } from "./routes/verificacion";
+  renderNotFoundTemplate,
+} from "./index.js";
+import { loginTemplate } from "./routes/inicio-sesion.js";
+import { errorNotFound } from "./routes/pagina-error.js";
+import { registerTemplate } from "./routes/registro.js";
+import { verification } from "./routes/verificacion.js";
 
 export const routes = [
   {
@@ -14,4 +16,5 @@ export const routes = [
   },
   { path: "/login", render: renderLoginTemplate(loginTemplate) },
   { path: "/verificacion", render: renderVerificationTemplate(verification) },
+  { path: "/notFound", render: renderNotFoundTemplate(errorNotFound) },
 ];
