@@ -1,36 +1,78 @@
-// Este es el punto de entrada de tu aplicacion
-// import { myFunction } from "./index.js";
-// import { registerTemplate } from './routes/registro.js';
-// import { loginTemplate } from './routes/inicio-sesion.js';
-// import { verification } from './routes/verificacion.js';
+// import { routes } from "./routes.js";
 
-// RegistroTemplate
-export function renderRegisterTemplate(template) {
-  const templateRegister = document.createElement("template");
-  templateRegister.innerHTML = template;
+// function goToPage(event) {
+//   event.preventDefault(); // stop the browser from navigating to the destination URL.
+//   const hrefUrl = event.target.getAttribute("href");
 
-  document.body.classList.add("body-register");
-  document.body.prepend(templateRegister.content);
+//   const route = routes.find((e) => e.path === hrefUrl);
+//   const page = route ? route.render() : notFound();
+
+//   const bodyMainEl = document.getElementById("body-main");
+//   bodyMainEl.innerHTML = "";
+//   bodyMainEl.append(page);
+
+//   window.history.pushState({}, window.title, hrefUrl); // Update URL as well as browser history.
+// }
+
+// // Enable client-side routing for all links on the page
+// document
+//   .querySelectorAll("a")
+//   .forEach((link) => link.addEventListener("click", goToPage));
+
+import {
+  renderRegisterTemplate,
+  renderLoginTemplate,
+  renderVerificationTemplate,
+  renderNotFoundTemplate,
+} from "./index.js";
+import { loginTemplate } from "./routes/login.js";
+import { errorNotFound } from "./routes/notFound.js";
+import { registerTemplate } from "./routes/register.js";
+import { verification } from "./routes/verification.js";
+
+const routes = [
+  {
+    path: "/register",
+    render: renderRegisterTemplate(registerTemplate),
+  },
+  {
+    path: "/login",
+    render: renderLoginTemplate(loginTemplate),
+  },
+  {
+    path: "/verification",
+    render: renderVerificationTemplate(verification),
+  },
+  {
+    path: "/notFound",
+    render: renderNotFoundTemplate(errorNotFound),
+  },
+];
+
+const defaultRoute = "/";
+const root = document.getElementById("body-main");
+
+export function navigateTo(hash) {
+  const route = routes.find((e) => e.path === hash);
+
+  if (route && route.render) {
+    window.history.pushState(
+      {},
+      route.path,
+      window.location.origin + route.path
+    );
+
+    if (root.firstChild) {
+      root.firstChild.remove();
+    }
+    root.appendChild(route.render(navigateTo));
+  } else {
+    navigateTo("/notFound");
+  }
 }
-// LoginTemplate
 
-export function renderLoginTemplate(template) {
-  const templateLogin = document.createElement("template");
-  templateLogin.innerHTML = template;
+window.onpopstate = () => {
+  navigateTo(window.location.pathname);
+};
 
-  document.body.classList.add("body-login");
-  document.body.prepend(templateLogin.content);
-}
-
-// Verification register
-
-export function renderVerificationTemplate(template) {
-  const templateVerification = document.createElement("template");
-  templateVerification.innerHTML = template;
-
-  document.body.classList.add("body-verification");
-  document.body.append(templateVerification.content);
-}
-// renderRegisterTemplate(registerTemplate);
-// renderLoginTemplate(loginTemplate);
-// renderVerificationTemplate(verification);
+navigateTo(window.location.pathname || defaultRoute);

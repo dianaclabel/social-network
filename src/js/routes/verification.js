@@ -1,4 +1,4 @@
-export const verification = /* html */`
+export const verification = /* html */ `
     <header class="header-login">
         <img  class="logo-register" src="../../image/logo.png" alt="logo">
     </header>
@@ -20,7 +20,7 @@ export const verification = /* html */`
 
         
 
-        <button class="btnStarted">Comencemos</button>
+        <button class="btnStarted" id="btn-started">Comencemos</button>
 
     </main>
 `;

@@ -14,7 +14,7 @@ export const loginTemplate = /* html */ `
                 <p class="forgot">¿Olvidaste tu contraseña?</p>
             
             </div>
-            <input type="button" value="Inicio de Sesion" class="btn-login">
+            <input type="button" value="Inicio de Sesion" class="btn-login" id="btn-login">
         </form>
         <div class="container-or">
             <div class="linea"></div>
