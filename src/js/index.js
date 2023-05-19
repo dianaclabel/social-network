@@ -1,11 +1,6 @@
 // aqui exportaras las funciones que necesites
 
-// Este es el punto de entrada de tu aplicacion
-// import { myFunction } from "./index.js";
-// import { registerTemplate } from './routes/registro.js';
-// import { loginTemplate } from './routes/inicio-sesion.js';
-// import { verification } from './routes/verificacion.js';
-// import { notFound } from "./routes/pagina-error";
+import { navigateTo } from "./main";
 
 // RegistroTemplate
 export function renderRegisterTemplate(template) {
@@ -14,6 +9,11 @@ export function renderRegisterTemplate(template) {
 
   document.body.classList.add("body-register");
   document.body.prepend(templateRegister.content);
+
+  const btnRegisterEl = document.getElementById("btnRegister");
+  btnRegisterEl.addEventListener("click", () => {
+    navigateTo("/verification");
+  });
 }
 // LoginTemplate
 
@@ -23,6 +23,11 @@ export function renderLoginTemplate(template) {
 
   document.body.classList.add("body-login");
   document.body.prepend(templateLogin.content);
+
+  const btnLoginEl = document.getElementById("btn-login");
+  btnLoginEl.addEventListener("click", () => {
+    navigateTo("/notFound");
+  });
 }
 
 // Verification register
@@ -33,6 +38,11 @@ export function renderVerificationTemplate(template) {
 
   document.body.classList.add("body-verification");
   document.body.append(templateVerification.content);
+
+  const btnVerificationEl = document.getElementById("btn-started");
+  btnVerificationEl.addEventListener("click", () => {
+    navigateTo("/login");
+  });
 }
 // Not found
 
