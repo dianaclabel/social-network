@@ -1,56 +1,31 @@
-// import { routes } from "./routes.js";
-
-// function goToPage(event) {
-//   event.preventDefault(); // stop the browser from navigating to the destination URL.
-//   const hrefUrl = event.target.getAttribute("href");
-
-//   const route = routes.find((e) => e.path === hrefUrl);
-//   const page = route ? route.render() : notFound();
-
-//   const bodyMainEl = document.getElementById("body-main");
-//   bodyMainEl.innerHTML = "";
-//   bodyMainEl.append(page);
-
-//   window.history.pushState({}, window.title, hrefUrl); // Update URL as well as browser history.
-// }
-
-// // Enable client-side routing for all links on the page
-// document
-//   .querySelectorAll("a")
-//   .forEach((link) => link.addEventListener("click", goToPage));
-
-import {
-  renderRegisterTemplate,
-  renderLoginTemplate,
-  renderVerificationTemplate,
-  renderNotFoundTemplate,
-} from "./index.js";
 import { loginTemplate } from "./routes/login.js";
-import { errorNotFound } from "./routes/notFound.js";
 import { registerTemplate } from "./routes/register.js";
 import { verification } from "./routes/verification.js";
+import { errorNotFound } from "./routes/notFound.js";
 
 const routes = [
   {
     path: "/register",
-    render: renderRegisterTemplate(registerTemplate),
+    render: registerTemplate,
   },
   {
     path: "/login",
-    render: renderLoginTemplate(loginTemplate),
+    render: loginTemplate,
   },
   {
     path: "/verification",
-    render: renderVerificationTemplate(verification),
+    render: verification,
   },
   {
     path: "/notFound",
-    render: renderNotFoundTemplate(errorNotFound),
+    render: errorNotFound,
   },
 ];
 
+// import { routes } from "./routes.js";
+
 const defaultRoute = "/";
-const root = document.getElementById("body-main");
+const root = document.getElementById("root");
 
 export function navigateTo(hash) {
   const route = routes.find((e) => e.path === hash);
