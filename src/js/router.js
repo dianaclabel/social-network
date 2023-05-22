@@ -2,7 +2,7 @@ import { loginTemplate } from './routes/login.js';
 import { registerTemplate } from './routes/register.js';
 import { verification } from './routes/verification.js';
 import { errorNotFound } from './routes/notFound.js';
-import { home } from './routes/home.js';
+import { home } from './routes/homeDos.js';
 
 export const routes = [
   {
@@ -42,7 +42,7 @@ function navigateTo(path) {
   // entrar a la nueva ruta;
   root.appendChild(render(navigateTo));
 
-  // navaegar -actualizar URL
+  // navegar -actualizar URL
   window.history.pushState({}, '', path);
 }
 

@@ -40,17 +40,17 @@ export const loginTemplate = (navigateTo) => {
 
   const btnLogin = sectionEl.querySelector('#btn-login');
   btnLogin.addEventListener('click', () => {
-    navigateTo('/notFound');
+    navigateTo('/');
   });
 
-  // cuando se carga el HTML se ejecuta la funcion flecha
-  window.addEventListener('DOMContentLoaded', () => {
-    const prueba = document.querySelector('#btn-login');
-    console.log(prueba);
-    prueba.addEventListener('click', () => {
-      navigateTo('/notFound');
-    });
-  });
+  // // cuando se carga el HTML se ejecuta la funcion flecha
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   const prueba = document.querySelector('#btn-login');
+  //   console.log(prueba);
+  //   prueba.addEventListener('click', () => {
+  //     navigateTo('/notFound');
+  //   });
+  // });
 
   return sectionEl;
 };
