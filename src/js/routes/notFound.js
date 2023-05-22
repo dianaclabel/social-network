@@ -1,5 +1,5 @@
 export const errorNotFound = (navegateTo) => {
-  const sectionEl = document.createElement("section");
+  const sectionEl = document.createElement('section');
   sectionEl.innerHTML = /* html */ `
          <p class ="parrafoUno">No llores solo es un </p>
          <div id ="logo">

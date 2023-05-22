@@ -1,5 +1,5 @@
 export const loginTemplate = (navigateTo) => {
-  const sectionEl = document.createElement("section");
+  const sectionEl = document.createElement('section');
   sectionEl.innerHTML = /* html */ `
     <header class="header-login">
          <img  class="logo-register" src="../../image/logo.png" alt="logo">
@@ -38,14 +38,19 @@ export const loginTemplate = (navigateTo) => {
     </main>;
  `;
 
-  // cuando se carga el HTML se ejecuta la funcion flecha
-  window.addEventListener("DOMContentLoaded", () => {
-    const prueba = document.querySelector("#btn-login");
-    console.log(prueba);
-    prueba.addEventListener("click", () => {
-      navigateTo("/notFound");
-    });
+  const btnLogin = sectionEl.querySelector('#btn-login');
+  btnLogin.addEventListener('click', () => {
+    navigateTo('/');
   });
+
+  // // cuando se carga el HTML se ejecuta la funcion flecha
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   const prueba = document.querySelector('#btn-login');
+  //   console.log(prueba);
+  //   prueba.addEventListener('click', () => {
+  //     navigateTo('/notFound');
+  //   });
+  // });
 
   return sectionEl;
 };
