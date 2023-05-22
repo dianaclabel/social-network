@@ -1,23 +1,23 @@
-import { loginTemplate } from "./routes/login.js";
-import { registerTemplate } from "./routes/register.js";
-import { verification } from "./routes/verification.js";
-import { errorNotFound } from "./routes/notFound.js";
+/* import { loginTemplate } from './routes/login.js';
+import { registerTemplate } from './routes/register.js';
+import { verification } from './routes/verification.js';
+import { errorNotFound } from './routes/notFound.js';
 
 const routes = [
   {
-    path: "/register",
+    path: '/register',
     render: registerTemplate,
   },
   {
-    path: "/login",
+    path: '/login',
     render: loginTemplate,
   },
   {
-    path: "/verification",
+    path: '/verification',
     render: verification,
   },
   {
-    path: "/notFound",
+    path: '/notFound',
     render: errorNotFound,
   },
-];
+]; */

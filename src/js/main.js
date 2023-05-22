@@ -1,31 +1,36 @@
-import { loginTemplate } from "./routes/login.js";
-import { registerTemplate } from "./routes/register.js";
-import { verification } from "./routes/verification.js";
-import { errorNotFound } from "./routes/notFound.js";
+import { loginTemplate } from './routes/login.js';
+import { registerTemplate } from './routes/register.js';
+import { verification } from './routes/verification.js';
+import { errorNotFound } from './routes/notFound.js';
+import { home } from './routes/home.js';
 
 const routes = [
   {
-    path: "/register",
+    path: '/register',
     render: registerTemplate,
   },
   {
-    path: "/login",
+    path: '/login',
     render: loginTemplate,
   },
   {
-    path: "/verification",
+    path: '/verification',
     render: verification,
   },
   {
-    path: "/notFound",
+    path: '/notFound',
     render: errorNotFound,
+  },
+  {
+    path: '/home',
+    render: home,
   },
 ];
 
 // import { routes } from "./routes.js";
 
-const defaultRoute = "/";
-const root = document.getElementById("root");
+const defaultRoute = '/';
+const root = document.getElementById('root');
 
 export function navigateTo(hash) {
   const route = routes.find((e) => e.path === hash);
@@ -34,7 +39,7 @@ export function navigateTo(hash) {
     window.history.pushState(
       {},
       route.path,
-      window.location.origin + route.path
+      window.location.origin + route.path,
     );
 
     if (root.firstChild) {
@@ -42,7 +47,7 @@ export function navigateTo(hash) {
     }
     root.appendChild(route.render(navigateTo));
   } else {
-    navigateTo("/notFound");
+    navigateTo('/notFound');
   }
 }
 
