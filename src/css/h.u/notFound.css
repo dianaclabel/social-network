@@ -1,0 +1,37 @@
+.zanahoria {
+  position: absolute;
+  align-items: center;
+  height: 320px;
+  width: 220px;
+  top: 40px;
+  left: 16px;
+  z-index: 1;
+  margin: 100px;
+
+  
+}
+
+.numero {
+  height: 150px;
+  width: 295px;
+  z-index: -1;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 130px;
+}
+.parrafoUno {
+  margin: 60px;
+  font-size: xx-large;
+  right: auto;
+}
+.parrafoDos {
+  margin: 35px;
+  font-size: x-large;
+}
+.parrafoTres {
+  color: rgba(254, 153, 1, 0.76);
+}
