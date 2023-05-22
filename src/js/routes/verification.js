@@ -1,5 +1,5 @@
-export const verification = () => {
-  const sectionEl = document.createElement("section");
+export const verification = (navigateTo) => {
+  const sectionEl = document.createElement('section');
   sectionEl.innerHTML = /* html */ `      
     <header class="header-login">
          <img  class="logo-register" src="../../image/logo.png" alt="logo">
@@ -15,7 +15,13 @@ export const verification = () => {
                  </svg>
         </div>
         </div>  
-         <button class="btnStarted" id="btn-started">Comencemos</button>
+         <a class="btnStarted" id="btn-started" href="/">Comencemos</a>
      </main>
     `;
+  const btnStarted = sectionEl.querySelector('#btn-started');
+  btnStarted.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo(btnStarted.getAttribute('href'));
+  });
+  return sectionEl;
 };

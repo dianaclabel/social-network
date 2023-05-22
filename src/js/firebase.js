@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,33 +19,10 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-const btnSubmitRegister = document.getElementById('btnRegister');
-btnSubmitRegister.addEventListener('click', () => {
-  const emailRegisterValue = document.getElementById('emailRegister').value;
-  const passwordRegisterValue = document.getElementById('passwordRegister').value;
-  const passVerifyRegisterValue = document.getElementById(
-    'passwordVerifyRegister',
-  ).value;
+export const firebaseRegister = (name, email, password) => createUserWithEmailAndPassword(
+  auth,
+  email,
+  password,
+).then((credential) => updateProfile(credential.user, { displayName: name }));
 
-  if (passwordRegisterValue === passVerifyRegisterValue) {
-    createUserWithEmailAndPassword(
-      auth,
-      emailRegisterValue,
-      passwordRegisterValue,
-    )
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        alert('¡Usuario Logeado!');
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert('Usuario NO Logeado!!');
-        // ..
-      });
-  } else {
-    console.log('contraseñas incorrectas');
-  }
-});
+export const firebaseUser = () => auth.currentUser;

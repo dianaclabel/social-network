@@ -38,14 +38,19 @@ export const loginTemplate = (navigateTo) => {
     </main>;
  `;
 
-  // cuando se carga el HTML se ejecuta la funcion flecha
-  window.addEventListener('DOMContentLoaded', () => {
-    const prueba = document.querySelector('#btn-login');
-    console.log(prueba);
-    prueba.addEventListener('click', () => {
-      navigateTo('/notFound');
-    });
+  const btnLogin = sectionEl.querySelector('#btn-login');
+  btnLogin.addEventListener('click', () => {
+    navigateTo('/');
   });
+
+  // // cuando se carga el HTML se ejecuta la funcion flecha
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   const prueba = document.querySelector('#btn-login');
+  //   console.log(prueba);
+  //   prueba.addEventListener('click', () => {
+  //     navigateTo('/notFound');
+  //   });
+  // });
 
   return sectionEl;
 };
