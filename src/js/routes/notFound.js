@@ -1,10 +1,12 @@
 export const errorNotFound = (navegateTo) => {
   const sectionEl = document.createElement('section');
   sectionEl.innerHTML = /* html */ `
-         <p>No llores solo es un </p>
-        <img src="" alt="logo-404">
-        <p>déjame guiarte de <b>regreso Home</b></p>
-    `;
+        <div class = "fondo">
+         <p class ="parrafoUno">No llores solo es un </p>
+         <img class = "numero" src="../../image/404zanahoria.png" alt="">
+        <p class ="parrafoDos">Déjame guiarte de <u class = "parrafoTres">regreso Home</u></p>
+</div>
+`;
 
   return sectionEl;
 };
