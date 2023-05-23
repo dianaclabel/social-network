@@ -11,3 +11,7 @@
   --color-secondary: #fad69e;
   --color-third-verdeazul: rgba(175, 224, 201, 1);
 }
+
+#root {
+  height: 100vh;
+}
