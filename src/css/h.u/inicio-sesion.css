@@ -1,14 +1,14 @@
-/*.body-register {
+.section-register {
   background: url(../../image/fondo-principal-grande.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
-}*/
+}
 
 .header-login {
   width: 100vw;
   text-align: center;
-  margin-top: 2.3rem;
+  padding-top: 2.3rem;
 }
 .logo-register {
   width: 65%;
