@@ -1,0 +1,42 @@
+.fondo {
+  background-image:url(../../image/carrotTrans1.png);
+  background-size: cover;
+  background-repeat: repeat;
+  min-height: 100vh;
+background-position: center;
+}
+
+.numero {
+  height: 400px;
+  width: 300px;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.parrafoUno {
+  padding-top: 80px;  
+  text-align: center;
+  font-size: x-large;
+  font-family: "Julius Sans One", sans-serif; 
+  color: black; 
+  font-weight: 700;           
+}
+.parrafoDos {
+  margin: 40px;
+  font-size: 18px;
+  font-family: "Julius Sans One", sans-serif;
+  color: black;
+  font-weight: 700;
+  
+}
+.parrafoTres {
+  *color: var(--color-primary);
+  color:#FB6222; 
+  font-family: "Julius Sans One", sans-serif;
+   font-weight: 1000;
+
+ 
+}

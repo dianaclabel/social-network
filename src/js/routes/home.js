@@ -1,3 +1,5 @@
+import { firebaseUser } from '../firebase';
+
 export const home = (navigateTo) => {
   const homeNodo = document.createElement('header');
   const imgLogo = document.createElement('img');
