@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import {
+  getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword,
+} from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,3 +28,25 @@ export const firebaseRegister = (name, email, password) => createUserWithEmailAn
 ).then((credential) => updateProfile(credential.user, { displayName: name }));
 
 export const firebaseUser = () => auth.currentUser;
+
+export const firebaseLogin = (email, password) => signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log(user);
+
+    if (user.emailVerified) {
+      navigateTo('/');
+    } else {
+      console.log('El usuario no está verificado. Por favor, verifique su correo electrónico');
+    }
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log('Error durante el inicio de sesión:', errorMessage);
+    // ... Hacer algo cuando ocurre un error durante el inicio de sesión
+    console.log('Error durante el inicio de sesión:', errorCode);
+    // ... Hacer algo cuando ocurre un error durante el inicio de sesión
+  });
