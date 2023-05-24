@@ -29,24 +29,4 @@ export const firebaseRegister = (name, email, password) => createUserWithEmailAn
 
 export const firebaseUser = () => auth.currentUser;
 
-export const firebaseLogin = (email, password) => signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    console.log(user);
-
-    if (user.emailVerified) {
-      navigateTo('/');
-    } else {
-      console.log('El usuario no está verificado. Por favor, verifique su correo electrónico');
-    }
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log('Error durante el inicio de sesión:', errorMessage);
-    // ... Hacer algo cuando ocurre un error durante el inicio de sesión
-    console.log('Error durante el inicio de sesión:', errorCode);
-    // ... Hacer algo cuando ocurre un error durante el inicio de sesión
-  });
+export const firebaseLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);

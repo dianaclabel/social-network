@@ -1,4 +1,4 @@
-import { firebaseLogin } from "../firebase";
+import { firebaseLogin } from '../firebase';
 
 export const loginTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
@@ -47,18 +47,23 @@ export const loginTemplate = (navigateTo) => {
     const formData = new FormData(loginform);
     const email = formData.get('email');
     const password = formData.get('password');
+    console.log(formData, email, password);
 
     firebaseLogin(email, password)
-      .then(() => {
-        navigateTo('/');
+      .then((userCredential) => {
+        if (userCredential) {
+          navigateTo('/');
+        } else {
+          alert('El usuario no está verificado. Por favor, verifique su correo electrónico');
+        }
       })
-      .catch((error)=>{
+      .catch((error) => {
         alert('usuario o contraseña incorrecta');
         console.log(error);
-      })
+      });
   });
 
-  // // cuando se carga el HTML se ejecuta la funcion flecha
+  // cuando se carga el HTML se ejecuta la funcion flecha
   // window.addEventListener('DOMContentLoaded', () => {
   //   const prueba = document.querySelector('#btn-login');
   //   console.log(prueba);
