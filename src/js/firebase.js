@@ -1,7 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import {
-  getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup} from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -35,7 +40,7 @@ export const firebaseLogin = (email, password) => signInWithEmailAndPassword(aut
   signInWithPopup(auth, provider);
 }; */
 
-export const firebaseLoginGoogle = (auth) => {
+export const firebaseLoginGoogle = (navigateTo) => {
   const provider = new GoogleAuthProvider();
 
   signInWithPopup(auth, provider)
@@ -45,7 +50,7 @@ export const firebaseLoginGoogle = (auth) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      navigateTo('/verication')
+      navigateTo('/verication');
     })
     .catch((error) => {
       // Hubo un error al iniciar sesión con Google
