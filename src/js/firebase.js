@@ -6,7 +6,8 @@ import {
   updateProfile,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup} from 'firebase/auth';
+  signInWithPopup,
+} from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -40,25 +41,7 @@ export const firebaseLogin = (email, password) => signInWithEmailAndPassword(aut
   signInWithPopup(auth, provider);
 }; */
 
-export const firebaseLoginGoogle = (navigateTo) => {
+export const firebaseRegisterGoogle = () => {
   const provider = new GoogleAuthProvider();
-
-  signInWithPopup(auth, provider)
-
-    .then((result) => {
-      // Se ha iniciado sesión exitosamente
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      navigateTo('/verication');
-    })
-    .catch((error) => {
-      // Hubo un error al iniciar sesión con Google
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      alert('No has podido registrarte con Google!');
-      // Maneja el error de acuerdo a tus necesidades
-    });
+  return signInWithPopup(auth, provider);
 };

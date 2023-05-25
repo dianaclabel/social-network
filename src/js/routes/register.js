@@ -1,4 +1,5 @@
-import { firebaseRegister, firebaseLoginGoogle } from '../firebase';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { firebaseRegister, firebaseRegisterGoogle } from '../firebase';
 
 export const registerTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
@@ -59,7 +60,7 @@ export const registerTemplate = (navigateTo) => {
           navigateTo('/verification');
         })
         .catch((error) => {
-          alert('usuario o contraseña incorrecta');
+          alert('Este email ya esta registarado');
           console.log(error);
         });
     } else {
@@ -68,24 +69,27 @@ export const registerTemplate = (navigateTo) => {
   });
 
   // registro con boton de Google
-  const btnGoogle = sectionEl.querySelector('btn-registerGoogle');
+  const btnGoogle = sectionEl.querySelector('#btn-registerGoogle');
   btnGoogle.addEventListener('click', () => {
-    firebaseLoginGoogle();
-    /* .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+    firebaseRegisterGoogle()
+      .then((result) => {
+      // Se ha iniciado sesión exitosamente
 
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log(credential);
+        const token = credential.accessToken;
         const user = result.user;
-        console.log(user);
-        navigateTo('/verication')
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.customData.email;
-            const credential = GoogleAuthProvider.credentialFromError(error);
-          // ...
-          }); */
-    // });
+        navigateTo('/verification');
+      })
+      .catch((error) => {
+      // Hubo un error al iniciar sesión con Google
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        alert('Este email ya esta registrado, intente con otro');
+      // Maneja el error de acuerdo a tus necesidades
+      });
   });
 
   return sectionEl;
