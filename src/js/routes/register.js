@@ -1,4 +1,4 @@
-import { firebaseRegister } from '../firebase';
+import { firebaseRegister, firebaseLoginGoogle } from '../firebase';
 
 export const registerTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
@@ -29,7 +29,7 @@ export const registerTemplate = (navigateTo) => {
             <div class="linea"></div>
         </div>
     
-        <button class="btn-register-google">
+        <button class="btn-register-google" id="btn-registerGoogle">
             <div class="container-logo">
                 <img src="../../image/icon-google.png" alt="logo-google" class="logo-google">
             </div>
@@ -65,6 +65,27 @@ export const registerTemplate = (navigateTo) => {
     } else {
       alert('contraseñas incorrectas');
     }
+  });
+
+  // registro con boton de Google
+  const btnGoogle = sectionEl.querySelector('btn-registerGoogle');
+  btnGoogle.addEventListener('click', () => {
+    firebaseLoginGoogle();
+    /* .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+
+        const user = result.user;
+        console.log(user);
+        navigateTo('/verication')
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+          // ...
+          }); */
+    // });
   });
 
   return sectionEl;
