@@ -1,0 +1,28 @@
+#root{
+    height:0;
+}
+
+.headerNodo{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.headerLogo{
+    width: 200px;
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.campana{
+    width: 40px;
+    grid-column: 2 / 3;
+    grid-row: 1;
+}
+
+.usuarioFoto{
+    width: 50px;
+    grid-column: 3 / 3;
+    grid-row: 1;
+}

@@ -1,14 +1,15 @@
 import { firebaseUser } from '../firebase';
 
 export const home = (navigateTo) => {
-  const homeNodo = document.createElement('header');
+  const headerNodo = document.createElement('header');
   const imgLogo = document.createElement('img');
   const imgBell = document.createElement('img');
+  const userImg = document.createElement('img');
 
-  homeNodo.id = 'homePrincipal';
-  homeNodo.className = 'homePrincipal';
+  headerNodo.id = 'hederNodo';
+  headerNodo.className = 'hederNodo';
 
-  imgLogo.className = 'homeLogo';
+  imgLogo.className = 'headerLogo';
   imgLogo.src = '../../image/logo.png';
   imgLogo.alt = 'logoFatFit';
 
@@ -16,10 +17,13 @@ export const home = (navigateTo) => {
   imgBell.src = '../../icon/bell.png';
   imgBell.alt = 'campana-notificacion';
 
-  homeNodo.appendChild(imgLogo);
-  homeNodo.appendChild(imgBell);
+  userImg.className = 'usuarioFoto';
+  userImg.src = '../../image/usuarioZanahoria.png';
+  userImg.alt = 'imagen-de-usuario';
 
-  document.body.appendChild(homeNodo);
-  document.body.appendChild(imgLogo);
-  document.body.appendChild(imgBell);
+  headerNodo.appendChild(imgLogo);
+  headerNodo.appendChild(imgBell);
+  headerNodo.appendChild(userImg);
+
+  document.body.append(imgLogo, imgBell, userImg);
 };
