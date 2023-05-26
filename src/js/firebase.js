@@ -36,12 +36,7 @@ export const firebaseUser = () => auth.currentUser;
 
 export const firebaseLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-/* export const firebaseLoginGoogle = (auth) => {
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider);
-}; */
-
-export const firebaseRegisterGoogle = () => {
+export const firebaseGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };

@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import { firebaseRegister, firebaseRegisterGoogle } from '../firebase';
+import { firebaseRegister, firebaseGoogle } from '../firebase';
 
 export const registerTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
@@ -14,13 +14,13 @@ export const registerTemplate = (navigateTo) => {
         <form action="" class="container-form" >
             <div class="container-form-items">
                 <label for="" class="form-item">Nombre</label>
-                <input type="text" class="form-input" name="name">
+                <input type="text" class="form-input" name="name" required>
                 <label for="" class="form-item">Correo</label>
-                <input type="email" class="form-input" name="email">
+                <input type="email" class="form-input" name="email" required>
                 <label for="" class="form-item">Contraseña</label>
-                <input type="password" class="form-input" name="password">
+                <input type="password" class="form-input" name="password" required>
                 <label for="" class="form-item">Verificar contraseña</label>
-                <input type="password" class="form-input" name="password-verification">
+                <input type="password" class="form-input" name="password-verification" required>
             </div>
             <input type="submit" value="Registrarse" class="btn-register" id="btnRegister">
         </form>
@@ -71,7 +71,7 @@ export const registerTemplate = (navigateTo) => {
   // registro con boton de Google
   const btnGoogle = sectionEl.querySelector('#btn-registerGoogle');
   btnGoogle.addEventListener('click', () => {
-    firebaseRegisterGoogle()
+    firebaseGoogle()
       .then((result) => {
       // Se ha iniciado sesión exitosamente
 

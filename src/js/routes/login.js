@@ -1,4 +1,5 @@
-import { firebaseLogin } from '../firebase';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { firebaseLogin, firebaseGoogle } from '../firebase';
 
 export const loginTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
@@ -13,9 +14,9 @@ export const loginTemplate = (navigateTo) => {
              <div class="container-form-items-login">
               
                  <label for="" class="form-login">Correo</label>
-                 <input type="email" class="form-inputLogin" name="email">
+                 <input type="email" class="form-inputLogin" name="email" required>
                  <label for="" class="form-login">Contraseña</label>
-                 <input type="password" class="form-inputLogin" name="password">
+                 <input type="password" class="form-inputLogin" name="password" required>
                  <p class="forgot">¿Olvidaste tu contraseña?</p>
           
              </div>
@@ -27,7 +28,7 @@ export const loginTemplate = (navigateTo) => {
              <div class="linea"></div>
          </div>
       
-         <button class="btn-login-google">
+         <button class="btn-login-google" id='btn-login-google'>
             <div class="container-logo">
               <img src="../../image/icon-google.png" alt="logo-google" class="logo-google">
            </div>
@@ -60,6 +61,29 @@ export const loginTemplate = (navigateTo) => {
       .catch((error) => {
         alert('usuario o contraseña incorrecta');
         console.log(error);
+      });
+  });
+
+  // registro con boton de Google
+  const btnLoginGoogle = sectionEl.querySelector('#btn-login-google');
+  btnLoginGoogle.addEventListener('click', () => {
+    firebaseGoogle()
+      .then((result) => {
+      // Se ha iniciado sesión exitosamente
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log(credential);
+        const token = credential.accessToken;
+        const user = result.user;
+        navigateTo('/');
+      })
+      .catch((error) => {
+      // Hubo un error al iniciar sesión con Google
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(errorMessage);
+      // Maneja el error de acuerdo a tus necesidades
       });
   });
 
