@@ -1,28 +1,43 @@
 #root{
-    height:0;
+    margin: 0;
 }
+
+/* body{
+    *display:flex;
+    align-content: center;
+    *min-height: 100vh;
+} */
 
 .headerNodo{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
-    grid-auto-rows: minmax(100px, auto);
+    background-color: var(--color-patito);
+    border-radius: 0 0 20px 20px;
+    position: sticky;
 }
 
-.headerLogo{
+.hederLogo{
     width: 200px;
-    grid-column: 1 / 3;
-    grid-row: 1;
 }
 
-.campana{
-    width: 40px;
-    grid-column: 2 / 3;
-    grid-row: 1;
+.iconHeader{
+    width: 30px;
 }
 
-.usuarioFoto{
-    width: 50px;
-    grid-column: 3 / 3;
-    grid-row: 1;
+footer{
+    bottom: 0;
+}
+
+.footerHome{
+    background-color: var(--color-patito);
+    border-radius: 10px 10px 0 0;
+    display: grid;
+    *align-content: space-between;
+    *justify-content: center;
+    *grid-auto-flow: column;/*se colocarán en columnas, lo que crea la fila horizontal deseada*/
+    *align-items: center;
+    *grid-gap: 26.9px;/* Separación entre elementos */ 
+}
+
+.iconFooter{
+    width: 60px; /* Ajusta el tamaño de tus iconos según tus necesidades */
+    height: 60px;
 }
