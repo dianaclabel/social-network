@@ -1,0 +1,43 @@
+#root{
+    margin: 0;
+}
+
+/* body{
+    *display:flex;
+    align-content: center;
+    *min-height: 100vh;
+} */
+
+.headerNodo{
+    background-color: var(--color-patito);
+    border-radius: 0 0 20px 20px;
+    position: sticky;
+}
+
+.hederLogo{
+    width: 200px;
+}
+
+.iconHeader{
+    width: 30px;
+}
+
+footer{
+    bottom: 0;
+}
+
+.footerHome{
+    background-color: var(--color-patito);
+    border-radius: 10px 10px 0 0;
+    display: grid;
+    *align-content: space-between;
+    *justify-content: center;
+    *grid-auto-flow: column;/*se colocarán en columnas, lo que crea la fila horizontal deseada*/
+    *align-items: center;
+    *grid-gap: 26.9px;/* Separación entre elementos */ 
+}
+
+.iconFooter{
+    width: 60px; /* Ajusta el tamaño de tus iconos según tus necesidades */
+    height: 60px;
+}
