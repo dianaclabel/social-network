@@ -2,11 +2,11 @@ import { loginTemplate } from './routes/login.js';
 import { registerTemplate } from './routes/register.js';
 import { verification } from './routes/verification.js';
 import { errorNotFound } from './routes/notFound.js';
-import { home } from './routes/homeDos.js';
+import { home } from './routes/home.js';
 
 export const routes = [
   {
-    path: '/',
+    path: '/home',
     render: home,
   },
   {
