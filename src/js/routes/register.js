@@ -1,4 +1,5 @@
-import { firebaseRegister } from '../firebase';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { firebaseRegister, firebaseRegisterGoogle } from '../firebase';
 
 export const registerTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
@@ -29,7 +30,7 @@ export const registerTemplate = (navigateTo) => {
             <div class="linea"></div>
         </div>
     
-        <button class="btn-register-google">
+        <button class="btn-register-google" id="btn-registerGoogle">
             <div class="container-logo">
                 <img src="../../image/icon-google.png" alt="logo-google" class="logo-google">
             </div>
@@ -59,12 +60,36 @@ export const registerTemplate = (navigateTo) => {
           navigateTo('/verification');
         })
         .catch((error) => {
-          alert('usuario o contraseña incorrecta');
+          alert('Este email ya esta registarado');
           console.log(error);
         });
     } else {
       alert('contraseñas incorrectas');
     }
+  });
+
+  // registro con boton de Google
+  const btnGoogle = sectionEl.querySelector('#btn-registerGoogle');
+  btnGoogle.addEventListener('click', () => {
+    firebaseRegisterGoogle()
+      .then((result) => {
+      // Se ha iniciado sesión exitosamente
+
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log(credential);
+        const token = credential.accessToken;
+        const user = result.user;
+        navigateTo('/verification');
+      })
+      .catch((error) => {
+      // Hubo un error al iniciar sesión con Google
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        alert('Este email ya esta registrado, intente con otro');
+      // Maneja el error de acuerdo a tus necesidades
+      });
   });
 
   return sectionEl;
