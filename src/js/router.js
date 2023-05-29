@@ -2,12 +2,12 @@ import { loginTemplate } from './routes/login.js';
 import { registerTemplate } from './routes/register.js';
 import { verification } from './routes/verification.js';
 import { errorNotFound } from './routes/notFound.js';
-import { home } from './routes/home.js';
+import { feed } from './routes/feed.js';
 
 export const routes = [
   {
     path: '/home',
-    render: home,
+    render: feed,
   },
   {
     path: '/register',
@@ -26,9 +26,10 @@ export const routes = [
 const root = document.getElementById('root');
 
 function navigateTo(path) {
+  console.log(path);
   const route = routes.find((r) => r.path === path);
   let render;
-
+  console.log(route);
   if (route) {
     render = route.render;
   } else {

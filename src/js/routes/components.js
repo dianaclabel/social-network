@@ -4,32 +4,33 @@ export const header = () => {
   const headerNodo = document.createElement('header');
   const divContenedorHeader = document.createElement('div');
   const imgLogo = document.createElement('img');
+  const divContainerUser = document.createElement('div');
   const imgBell = document.createElement('img');
   const imgUserPhoto = document.createElement('img');
 
   divContenedorHeader.className = 'contenedor-header';
+  divContainerUser.className = 'container-user';
 
-  headerNodo.id = 'hederPrincipal';
-  headerNodo.className = 'hederPrincipal';
+  headerNodo.id = 'headerPrincipal';
+  headerNodo.className = 'headerPrincipal';
 
-  imgLogo.className = 'hederLogo';
+  imgLogo.className = 'headerLogo';
   imgLogo.src = '../../image/logo.png';
   imgLogo.alt = 'logoFatFit';
 
-  imgBell.className = 'iconHeader';
+  imgBell.className = 'iconBellHeader';
   imgBell.src = '../../icon/bell.png';
   imgBell.alt = 'campana-notificacion';
 
-  imgUserPhoto.className = 'iconHeader';
+  imgUserPhoto.className = 'iconUserPhotoHeader';
   imgUserPhoto.src = '../../image/usuarioCarrot.png';
   imgUserPhoto.id = 'userPhoto';
 
+  divContainerUser.appendChild(imgBell);
+  divContainerUser.appendChild(imgUserPhoto);
   divContenedorHeader.appendChild(imgLogo);
-  divContenedorHeader.appendChild(imgBell);
-  divContenedorHeader.appendChild(imgUserPhoto);
+  divContenedorHeader.appendChild(divContainerUser);
   headerNodo.appendChild(divContenedorHeader);
-
-  // document.body.append(headerNodo);
 
   return headerNodo;
 };
@@ -78,12 +79,5 @@ export const footer = () => {
 
   footerNodo.appendChild(divContainerMenu);
 
-  // document.body.append(footerNodo);
-
   return footerNodo;
-};
-
-export const home = () => {
-  header();
-  footer();
 };

@@ -1,30 +1,44 @@
-#root{
+/* #root{
     margin: 0;
-}
-
-/* body{
-    *display:flex;
-    align-content: center;
-    *min-height: 100vh;
 } */
 
-.headerNodo{
+.headerPrincipal{
     background-color: var(--color-patito);
     border-radius: 0 0 20px 20px;
     position: sticky;
 }
 
-.hederLogo{
-    width: 200px;
+.contenedor-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+    padding: 1rem 0;
 }
 
-.iconHeader{
+.headerLogo{
+    width: 150px;
+}
+
+.container-user{
+    display: flex;
+    align-items: center;
+}
+.iconBellHeader{
     width: 30px;
 }
 
-footer{
-    bottom: 0;
+.iconUserPhotoHeader{
+    width: 60px;
 }
+
+
+
+
+
+
+/* .footerHome{
+    bottom: 0;
+} */
 
 .footerHome{
     background-color: var(--color-patito);

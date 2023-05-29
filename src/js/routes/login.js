@@ -37,7 +37,7 @@ export const loginTemplate = (navigateTo) => {
             
          </button>
 
-        <p class="question-register">¿No tienes una cuenta?<a href="/" class="question-login">Registrarte</a></p>
+        <p class="question-register">¿No tienes una cuenta?<a href="/register" class="question-login" id="register-link">Registrarte</a></p>
         
     </main>;
  `;
@@ -85,6 +85,12 @@ export const loginTemplate = (navigateTo) => {
         console.log(errorMessage);
       // Maneja el error de acuerdo a tus necesidades
       });
+  });
+
+  const registerLink = sectionEl.querySelector('#register-link');
+  registerLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo(registerLink.getAttribute('href'));
   });
 
   // cuando se carga el HTML se ejecuta la funcion flecha

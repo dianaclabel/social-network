@@ -1,3 +1,5 @@
+import { header, footer } from './components.js';
+
 /* eslint-disable max-len */
 // import { firebaseUser } from '../firebase';
 
@@ -51,3 +53,11 @@
 
 //   return headerNodo;
 // };
+export const feed = () => {
+  const sectionEl = document.createElement('section');
+  const headerNodoEl = header();
+  const footerNodoEl = footer();
+  sectionEl.append(headerNodoEl, footerNodoEl);
+
+  return sectionEl;
+};

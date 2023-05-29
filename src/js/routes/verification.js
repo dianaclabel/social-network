@@ -1,5 +1,6 @@
 export const verification = (navigateTo) => {
   const sectionEl = document.createElement('section');
+  sectionEl.classList.add('section-verification');
   sectionEl.innerHTML = /* html */ `      
     <header class="header-login">
          <img  class="logo-register" src="../../image/logo.png" alt="logo">

@@ -15,4 +15,6 @@
 
 #root {
   height: 100vh;
+  max-width: 420px;
+  margin: 0 auto;
 }

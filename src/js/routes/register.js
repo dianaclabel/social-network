@@ -40,7 +40,7 @@ export const registerTemplate = (navigateTo) => {
         </button>
 
         <p class="terms">Al registrarte aceptas los <b class="bold-terms">términos de servicio</b> y <b class="bold-terms">la política de privacidad</b></p>
-        <p class="question-register">¿Ya tienes cuenta? <a href="/" class="question-login">Inicio de sesion</a></p>
+        <p class="question-register">¿Ya tienes cuenta? <a href="/login" class="question-login" id="login-link">Inicio de sesion</a></p>
     
     </main>
   `;
@@ -90,6 +90,12 @@ export const registerTemplate = (navigateTo) => {
         alert('Este email ya esta registrado, intente con otro');
       // Maneja el error de acuerdo a tus necesidades
       });
+  });
+
+  const loginLink = sectionEl.querySelector('#login-link');
+  loginLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo(loginLink.getAttribute('href'));
   });
 
   return sectionEl;
