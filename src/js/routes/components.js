@@ -35,6 +35,23 @@ export const header = () => {
   return headerNodo;
 };
 
+export const wallZone = () => {
+  const sectionNodo = document.createElement('section');
+  sectionNodo.className = 'sectionWall';
+
+  const h2 = document.createElement('h2');
+  h2.textContent = 'Hola';
+  const spanUserName = document.createElement('span');
+  spanUserName.id = 'userName';
+  h2.appendChild(spanUserName);
+  sectionNodo.appendChild('h2');
+
+  const createPost = document.createElement('input');
+  createPost.classList.add('containerCreatePost');
+  const buttonPost = document.createElement('button');
+  buttonPost.type = 'submit';
+};
+
 export const footer = () => {
   const footerNodo = document.createElement('footer');
   footerNodo.className = 'footerHome';
