@@ -51,10 +51,13 @@ export const wallZone = () => {
   imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
   imgUserForm.setAttribute('alt', 'imagen-usuario');
 
-  const createPost = document.createElement('input');
+  const createPost = document.createElement('textarea');
   createPost.classList.add('containerCreatePost');
   createPost.setAttribute('id', 'inputCreatePost');
-  createPost.setAttribute('type', 'text');
+  createPost.setAttribute('cols', '30');
+  createPost.setAttribute('rows', '10');
+  createPost.setAttribute('placeholder', 'Publica algo aquí');
+
 
   const sharePhoto = document.createElement('img');
   sharePhoto.classList.add('share-icons');
@@ -70,10 +73,9 @@ export const wallZone = () => {
   shareVideo.classList.add('share-icons');
   shareVideo.setAttribute('src', '../../icon/shareVideo.png');
   shareVideo.setAttribute('alt', 'video-para-compartir');
-  
- 
-  
+
   const buttonPost = document.createElement('button');
+  buttonPost.classList.add('btn-share');
   buttonPost.type = 'submit';
   buttonPost.textContent = 'Compartir';
 
@@ -93,7 +95,6 @@ export const wallZone = () => {
   // form.appendChild(shareVideo);
   form.appendChild(divContainerShare);
   form.appendChild(buttonPost);
-  
 
   const divContainerWall = document.createElement('div');
   divContainerWall.classList.add('container-wall');
