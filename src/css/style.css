@@ -6,6 +6,11 @@
   margin: 0;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 :root {
   --color-primary: rgba(254, 152, 1, 1);
   --color-secondary: #fad69e;

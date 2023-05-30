@@ -114,12 +114,18 @@ export const footer = () => {
   aIconHome.appendChild(imgIconHome);
   divContainerMenu.appendChild(aIconHome);
 
+  /**  **********   ICONO DE SEARCH    ************ */
   const imgIconSearch = document.createElement('img');
   imgIconSearch.src = '../../icon/Search.png';
   imgIconSearch.alt = 'icon-search';
   imgIconSearch.className = 'iconFooter';
   imgIconSearch.id = 'iconSearch';
   divContainerMenu.appendChild(imgIconSearch);
+  const aIconSearch = document.createElement('a');
+  aIconSearch.classList.add('linksIcons');
+  aIconSearch.setAttribute('href', '/');
+  aIconSearch.appendChild(imgIconSearch);
+  divContainerMenu.appendChild(aIconSearch);
 
   /**  **********   AGREGAR POST      ************ */
   const imgIconAdd = document.createElement('img');
@@ -134,12 +140,19 @@ export const footer = () => {
   aIconAdd.appendChild(imgIconAdd);
   divContainerMenu.appendChild(aIconAdd);
 
+  /**  **********   ICONO CARROT     ************ */
+
   const imgIconLikes = document.createElement('img');
   imgIconLikes.src = '../../icon/carrot.png';
   imgIconLikes.alt = 'icon-Likes';
   imgIconLikes.className = 'iconFooter';
   imgIconLikes.id = 'iconLikes';
   divContainerMenu.appendChild(imgIconLikes);
+  const aIconCarrot= document.createElement('a');
+  aIconCarrot.classList.add('linksIcons');
+  aIconCarrot.setAttribute('href', '/');
+  aIconCarrot.appendChild(imgIconLikes);
+  divContainerMenu.appendChild(aIconCarrot);
 
   /**  **********   LOGOUT      ************ */
   const imgIconLogout = document.createElement('img');

@@ -50,16 +50,22 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:center ;
+    
+    
 }
 
 .container-menu{
-    display: flex;
-    justify-content: center;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+}
+
+.linksIcons{
+    margin: 5px;
 }
 
 .iconFooter{
-    width: 60px; /* Ajusta el tamaño de tus iconos según tus necesidades */
-    height: 60px;
-    margin: 10px;
+    width: 100%
 }
