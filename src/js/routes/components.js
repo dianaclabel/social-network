@@ -35,6 +35,65 @@ export const header = () => {
   return headerNodo;
 };
 
+export const wallZone = () => {
+  const sectionNodo = document.createElement('section');
+  sectionNodo.className = 'sectionWall';
+
+  // const welcome = document.createElement('h2');
+  // welcome.textContent = 'Hola';
+  // welcome.classList.add('hiUser');
+  // const spanUserName = document.createElement('span');
+  // spanUserName.setAttribute('id', 'userName');
+  // welcome.appendChild(spanUserName);
+  // sectionNodo.appendChild(welcome);
+  const imgUserForm = document.createElement('img');
+  imgUserForm.classList.add('imgUser');
+  imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
+  imgUserForm.setAttribute('alt', 'imagen-usuario');
+
+  const createPost = document.createElement('input');
+  createPost.classList.add('containerCreatePost');
+  createPost.setAttribute('id', 'inputCreatePost');
+  createPost.setAttribute('type', 'text');
+
+  const sharePhoto = document.createElement('img');
+  sharePhoto.classList.add('share-icons');
+  sharePhoto.setAttribute('src', '../../icon/sharePhoto.png');
+  sharePhoto.setAttribute('alt', 'imgen-para-compartir');
+
+  const shareMap = document.createElement('img');
+  shareMap.classList.add('share-icons');
+  shareMap.setAttribute('src', '../../icon/shareMap.png');
+  shareMap.setAttribute('alt', 'mapa-para-compartir');
+
+  const shareVideo = document.createElement('img');
+  shareVideo.classList.add('share-icons');
+  shareVideo.setAttribute('src', '../../icon/shareVideo.png');
+  shareVideo.setAttribute('alt', 'video-para-compartir');
+
+  const buttonPost = document.createElement('button');
+  buttonPost.type = 'submit';
+  buttonPost.textContent = 'Compartir';
+
+  const form = document.createElement('form');
+  form.classList.add('form-post');
+  form.setAttribute('id', 'form-post');
+  form.appendChild(imgUserForm);
+  form.appendChild(createPost);
+  form.appendChild(sharePhoto);
+  form.appendChild(shareMap);
+  form.appendChild(shareVideo);
+  form.appendChild(buttonPost);
+
+  const divContainerWall = document.createElement('div');
+  divContainerWall.classList.add('conteiner-wall');
+  divContainerWall.setAttribute('id', 'container-wall');
+  divContainerWall.appendChild(form);
+  sectionNodo.appendChild(divContainerWall);
+
+  return sectionNodo;
+};
+
 export const footer = () => {
   const footerNodo = document.createElement('footer');
   footerNodo.className = 'footerHome';
@@ -42,12 +101,18 @@ export const footer = () => {
   const divContainerMenu = document.createElement('div');
   divContainerMenu.className = 'container-menu';
 
+  /**  **********   ICONO DE HOME      ************ */
   const imgIconHome = document.createElement('img');
   imgIconHome.src = '../../icon/homepage.png';
   imgIconHome.className = 'iconFooter';
   imgIconHome.id = 'iconHome';
   imgIconHome.alt = 'icon-Home';
   divContainerMenu.appendChild(imgIconHome);
+  const aIconHome = document.createElement('a');
+  aIconHome.classList.add('linksIcons');
+  aIconHome.setAttribute('href', '/');
+  aIconHome.appendChild(imgIconHome);
+  divContainerMenu.appendChild(aIconHome);
 
   const imgIconSearch = document.createElement('img');
   imgIconSearch.src = '../../icon/Search.png';
@@ -56,12 +121,18 @@ export const footer = () => {
   imgIconSearch.id = 'iconSearch';
   divContainerMenu.appendChild(imgIconSearch);
 
+  /**  **********   AGREGAR POST      ************ */
   const imgIconAdd = document.createElement('img');
   imgIconAdd.src = '../../icon/Add.png';
   imgIconAdd.alt = 'icon-Add';
   imgIconAdd.className = 'iconFooter';
   imgIconAdd.id = 'iconAdd';
   divContainerMenu.appendChild(imgIconAdd);
+  const aIconAdd = document.createElement('a');
+  aIconAdd.classList.add('linksIcons');
+  aIconAdd.setAttribute('href', '/');
+  aIconAdd.appendChild(imgIconAdd);
+  divContainerMenu.appendChild(aIconAdd);
 
   const imgIconLikes = document.createElement('img');
   imgIconLikes.src = '../../icon/carrot.png';
@@ -70,12 +141,18 @@ export const footer = () => {
   imgIconLikes.id = 'iconLikes';
   divContainerMenu.appendChild(imgIconLikes);
 
+  /**  **********   LOGOUT      ************ */
   const imgIconLogout = document.createElement('img');
   imgIconLogout.src = '../../icon/Logout.png';
   imgIconLogout.alt = 'logout';
   imgIconLogout.className = 'iconFooter';
   imgIconLogout.id = 'logout';
   divContainerMenu.appendChild(imgIconLogout);
+  const aIconLogout = document.createElement('a');
+  aIconLogout.classList.add('linksIcons');
+  aIconLogout.setAttribute('href', '/');
+  aIconLogout.appendChild(imgIconLogout);
+  divContainerMenu.appendChild(aIconLogout);
 
   footerNodo.appendChild(divContainerMenu);
 

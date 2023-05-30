@@ -1,4 +1,4 @@
-import { header, footer } from './components.js';
+import { header, wallZone, footer } from './components.js';
 
 /* eslint-disable max-len */
 // import { firebaseUser } from '../firebase';
@@ -57,7 +57,8 @@ export const feed = () => {
   const sectionEl = document.createElement('section');
   const headerNodoEl = header();
   const footerNodoEl = footer();
-  sectionEl.append(headerNodoEl, footerNodoEl);
+  const wallNodo = wallZone();
+  sectionEl.append(headerNodoEl, wallNodo, footerNodoEl);
 
   return sectionEl;
 };
