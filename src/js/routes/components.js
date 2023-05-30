@@ -70,23 +70,33 @@ export const wallZone = () => {
   shareVideo.classList.add('share-icons');
   shareVideo.setAttribute('src', '../../icon/shareVideo.png');
   shareVideo.setAttribute('alt', 'video-para-compartir');
-
+  
+ 
+  
   const buttonPost = document.createElement('button');
   buttonPost.type = 'submit';
   buttonPost.textContent = 'Compartir';
+
+  const divContainerShare = document.createElement('div');
+  divContainerShare.classList.add('divContainerShare');
+  divContainerShare.appendChild(sharePhoto);
+  divContainerShare.appendChild(shareMap);
+  divContainerShare.appendChild(shareVideo);
 
   const form = document.createElement('form');
   form.classList.add('form-post');
   form.setAttribute('id', 'form-post');
   form.appendChild(imgUserForm);
   form.appendChild(createPost);
-  form.appendChild(sharePhoto);
-  form.appendChild(shareMap);
-  form.appendChild(shareVideo);
+  // form.appendChild(sharePhoto);
+  // form.appendChild(shareMap);
+  // form.appendChild(shareVideo);
+  form.appendChild(divContainerShare);
   form.appendChild(buttonPost);
+  
 
   const divContainerWall = document.createElement('div');
-  divContainerWall.classList.add('conteiner-wall');
+  divContainerWall.classList.add('container-wall');
   divContainerWall.setAttribute('id', 'container-wall');
   divContainerWall.appendChild(form);
   sectionNodo.appendChild(divContainerWall);
