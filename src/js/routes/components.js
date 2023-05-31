@@ -56,8 +56,7 @@ export const wallZone = () => {
   createPost.setAttribute('id', 'inputCreatePost');
   createPost.setAttribute('cols', '30');
   createPost.setAttribute('rows', '10');
-  createPost.setAttribute('placeholder', 'Publica algo aquí');
-
+  createPost.setAttribute('placeholder', 'Publica algo aquí...');
 
   const sharePhoto = document.createElement('img');
   sharePhoto.classList.add('share-icons');
@@ -76,6 +75,7 @@ export const wallZone = () => {
 
   const buttonPost = document.createElement('button');
   buttonPost.classList.add('btn-share');
+  buttonPost.setAttribute('id', 'btnPost');
   buttonPost.type = 'submit';
   buttonPost.textContent = 'Compartir';
 
@@ -90,9 +90,6 @@ export const wallZone = () => {
   form.setAttribute('id', 'form-post');
   form.appendChild(imgUserForm);
   form.appendChild(createPost);
-  // form.appendChild(sharePhoto);
-  // form.appendChild(shareMap);
-  // form.appendChild(shareVideo);
   form.appendChild(divContainerShare);
   form.appendChild(buttonPost);
 
@@ -159,7 +156,7 @@ export const footer = () => {
   imgIconLikes.className = 'iconFooter';
   imgIconLikes.id = 'iconLikes';
   divContainerMenu.appendChild(imgIconLikes);
-  const aIconCarrot= document.createElement('a');
+  const aIconCarrot = document.createElement('a');
   aIconCarrot.classList.add('linksIcons');
   aIconCarrot.setAttribute('href', '/');
   aIconCarrot.appendChild(imgIconLikes);
