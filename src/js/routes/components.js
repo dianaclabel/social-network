@@ -50,7 +50,6 @@ export const wallZone = () => {
   createPost.setAttribute('cols', '30');
   createPost.setAttribute('rows', '10');
   createPost.setAttribute('placeholder', 'Publica algo aquí...');
-
   const sharePhoto = document.createElement('img');
   sharePhoto.classList.add('share-icons');
   sharePhoto.setAttribute('src', '../../icon/sharePhoto.png');
