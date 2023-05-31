@@ -104,10 +104,23 @@
 
 
 /******************* DIV CONTENEDOR DE PUBLICACIONES    ********************/
+#post-container{
+    *background-color: var(--color-third-verdeazul);
+    margin: 1rem;
+    padding: 1rem;
+}
+
 .postElement{
+    background-color: rgb(255, 255, 255);
     font-family: "Inder", sans-serif;
     margin: 1rem;
     border: 1px var(--color-primary);
+}
+
+.divContainerPostElement{
+    background-color: var(--color-third-verdeazul);
+    padding: 30px;
+    margin: 1rem;
 }
 
 
