@@ -47,6 +47,7 @@ export const wallZone = () => {
   const createPost = document.createElement('textarea');
   createPost.classList.add('containerCreatePost');
   createPost.setAttribute('id', 'inputCreatePost');
+  createPost.setAttribute('name', 'textareaEl');
   createPost.setAttribute('cols', '30');
   createPost.setAttribute('rows', '10');
   createPost.setAttribute('placeholder', 'Publica algo aquí...');
@@ -94,18 +95,20 @@ export const wallZone = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault(); // Previene el comportamiento predeterminado del formulario
+    const data = new FormData(form);
+    const textareaValue = data.get('textareaEl');
 
     // Aquí se puede ejecutar la lógica para publicar el contenido del formulario
-    const userInput = createPost.value;
-    console.log('Publicando:', userInput);
+    console.log('Publicando:', textareaValue);
 
     // Resto de la lógica de publicación...
 
     // Puedes restablecer el formulario después de la publicación si lo deseas
     form.reset();
+    return textareaValue;
   };
 
-  buttonPost.addEventListener('click', handleFormSubmit);
+  form.addEventListener('submit', handleFormSubmit);
 
   return sectionNodo;
 };
