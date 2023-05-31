@@ -109,11 +109,12 @@ export const wallZone = () => {
     postElement.textContent = textareaValue;
     postElement.classList.add('postElement');
     // imgUserForm.cloneNode.appendChild(postElement)
-    // const divContainerPostElement = document.createElement('div');
-    // divContainerPostElement.classList.add('divContainerPostElement');
-
+    const divContainerPostElement = document.createElement('div');
+    divContainerPostElement.classList.add('divContainerPostElement');
+    divContainerPostElement.appendChild(postElement);
     // Agrega el elemento de publicación al postContaine o div vacio
-    postContainer.appendChild(postElement);
+    postContainer.appendChild(divContainerPostElement);
+    
 
     // Puedes restablecer el formulario después de la publicación
     form.reset();
