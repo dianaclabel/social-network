@@ -105,7 +105,6 @@
 
 /******************* DIV CONTENEDOR DE PUBLICACIONES    ********************/
 #post-container{
-    *background-color: var(--color-third-verdeazul);
     margin: 1rem;
     padding: 1rem;
 }
