@@ -39,13 +39,6 @@ export const wallZone = () => {
   const sectionNodo = document.createElement('section');
   sectionNodo.className = 'sectionWall';
 
-  // const welcome = document.createElement('h2');
-  // welcome.textContent = 'Hola';
-  // welcome.classList.add('hiUser');
-  // const spanUserName = document.createElement('span');
-  // spanUserName.setAttribute('id', 'userName');
-  // welcome.appendChild(spanUserName);
-  // sectionNodo.appendChild(welcome);
   const imgUserForm = document.createElement('img');
   imgUserForm.classList.add('imgUser');
   imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
@@ -56,13 +49,12 @@ export const wallZone = () => {
   createPost.setAttribute('id', 'inputCreatePost');
   createPost.setAttribute('cols', '30');
   createPost.setAttribute('rows', '10');
-  createPost.setAttribute('placeholder', 'Publica algo aquí');
-
+  createPost.setAttribute('placeholder', 'Publica algo aquí...');
 
   const sharePhoto = document.createElement('img');
   sharePhoto.classList.add('share-icons');
   sharePhoto.setAttribute('src', '../../icon/sharePhoto.png');
-  sharePhoto.setAttribute('alt', 'imgen-para-compartir');
+  sharePhoto.setAttribute('alt', 'imagen-para-compartir');
 
   const shareMap = document.createElement('img');
   shareMap.classList.add('share-icons');
@@ -76,6 +68,7 @@ export const wallZone = () => {
 
   const buttonPost = document.createElement('button');
   buttonPost.classList.add('btn-share');
+  buttonPost.setAttribute('id', 'btnPost');
   buttonPost.type = 'submit';
   buttonPost.textContent = 'Compartir';
 
@@ -90,9 +83,6 @@ export const wallZone = () => {
   form.setAttribute('id', 'form-post');
   form.appendChild(imgUserForm);
   form.appendChild(createPost);
-  // form.appendChild(sharePhoto);
-  // form.appendChild(shareMap);
-  // form.appendChild(shareVideo);
   form.appendChild(divContainerShare);
   form.appendChild(buttonPost);
 
@@ -101,6 +91,21 @@ export const wallZone = () => {
   divContainerWall.setAttribute('id', 'container-wall');
   divContainerWall.appendChild(form);
   sectionNodo.appendChild(divContainerWall);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); // Previene el comportamiento predeterminado del formulario
+
+    // Aquí se puede ejecutar la lógica para publicar el contenido del formulario
+    const userInput = createPost.value;
+    console.log('Publicando:', userInput);
+
+    // Resto de la lógica de publicación...
+
+    // Puedes restablecer el formulario después de la publicación si lo deseas
+    form.reset();
+  };
+
+  buttonPost.addEventListener('click', handleFormSubmit);
 
   return sectionNodo;
 };
@@ -159,7 +164,7 @@ export const footer = () => {
   imgIconLikes.className = 'iconFooter';
   imgIconLikes.id = 'iconLikes';
   divContainerMenu.appendChild(imgIconLikes);
-  const aIconCarrot= document.createElement('a');
+  const aIconCarrot = document.createElement('a');
   aIconCarrot.classList.add('linksIcons');
   aIconCarrot.setAttribute('href', '/');
   aIconCarrot.appendChild(imgIconLikes);

@@ -40,3 +40,12 @@ export const firebaseGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
+
+// export function signOutUser() {
+//   return signOut(auth)
+//     .then(() => {
+//       console.log('El usuario a cerrado sesión');
+//     }).catch((error) => {
+//       console.log(error.message);
+//     });
+// }

@@ -1,13 +1,8 @@
-/* #root{
-    margin: 0;
-} */
-
+/******************* HEADER     ********************/
 .headerPrincipal{
-    
     background-color: var(--color-patito);
     border-radius: 0 0 20px 20px;
     position: sticky;
-    
 }
 
 .contenedor-header{
@@ -32,40 +27,7 @@
     width: 60px;
 }
 
-
-
-
-
-
-/* .footerHome{
-    bottom: 0;
-} */
-
-.footerHome{
-    background-color: var(--color-patito);
-    border-radius: 10px 10px 0 0;
-    position: absolute;
-    height: 10%;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items:center ;
-    
-    
-}
-
-.container-menu{
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    align-items: center;
-}
-
-.linksIcons{
-    margin: 5px;
-}
-
+/******************* CONTENEDOR PARA PUBLICAR   ********************/
 .container-wall {
     background-color: var(--color-patito);
     border: 1px solid #FE9801;
@@ -97,6 +59,7 @@
 }
 
 .containerCreatePost{
+    font-family: "Inder", sans-serif;
     grid-column: span 2;
     border: none;
     resize: none;
@@ -139,7 +102,31 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+/******************* FOOTER     ********************/
+.footerHome{
+    background-color: var(--color-patito);
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    height: 10%;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    
+    
+}
 
+.container-menu{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+}
+
+.linksIcons{
+    margin: 5px;
+}
 
 .iconFooter{
     width: 100%
