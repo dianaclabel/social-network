@@ -1,4 +1,4 @@
-// import { postInput } from '../firebase';
+import { savePost } from '../firebase.js';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -44,13 +44,13 @@ export const wallZone = () => {
   imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
   imgUserForm.setAttribute('alt', 'imagen-usuario');
 
-  const createPost = document.createElement('textarea');
-  createPost.classList.add('containerCreatePost');
-  createPost.setAttribute('id', 'inputCreatePost');
-  createPost.setAttribute('name', 'textareaEl');
-  createPost.setAttribute('cols', '30');
-  createPost.setAttribute('rows', '10');
-  createPost.setAttribute('placeholder', 'Publica algo aquí...');
+  const newPostText = document.createElement('textarea');
+  newPostText.classList.add('containerCreatePost');
+  newPostText.setAttribute('id', 'inputCreatePost');
+  newPostText.setAttribute('name', 'textareaEl');
+  newPostText.setAttribute('cols', '30');
+  newPostText.setAttribute('rows', '10');
+  newPostText.setAttribute('placeholder', 'Publica algo aquí...');
   const sharePhoto = document.createElement('img');
   sharePhoto.classList.add('share-icons');
   sharePhoto.setAttribute('src', '../../icon/sharePhoto.png');
@@ -82,7 +82,7 @@ export const wallZone = () => {
   form.classList.add('form-post');
   form.setAttribute('id', 'form-post');
   form.appendChild(imgUserForm);
-  form.appendChild(createPost);
+  form.appendChild(newPostText);
   form.appendChild(divContainerShare);
   form.appendChild(buttonPost);
 
@@ -92,9 +92,17 @@ export const wallZone = () => {
   divContainerWall.appendChild(form);
   sectionNodo.appendChild(divContainerWall);
 
+  // contenedor alone div vacio
   const postContainer = document.createElement('div');
   postContainer.setAttribute('id', 'post-container');
   sectionNodo.appendChild(postContainer);
+
+  const createPost = (valuePost) => {
+    const postElement = document.createElement('div');
+    postElement.textContent = valuePost;
+    postElement.classList.add('postElement');
+    postContainer.appendChild(postElement);
+  };
 
   const handleFormSubmit = (event) => {
     event.preventDefault(); // Previene el comportamiento predeterminado del formulario
@@ -105,15 +113,16 @@ export const wallZone = () => {
     console.log('Publicando:', textareaValue);
 
     // Crea un nuevo elemento de publicación
-    const postElement = document.createElement('div');
-    postElement.textContent = textareaValue;
-    postElement.classList.add('postElement');
-    // imgUserForm.cloneNode.appendChild(postElement)
+    savePost(textareaValue);
+    createPost(textareaValue);
+    // const postElement = document.createElement('div');
+    // postElement.textContent = textareaValue;
+    // postElement.classList.add('postElement');
     // const divContainerPostElement = document.createElement('div');
     // divContainerPostElement.classList.add('divContainerPostElement');
 
     // Agrega el elemento de publicación al postContaine o div vacio
-    postContainer.appendChild(postElement);
+    // postContainer.appendChild(postElement);
 
     // Puedes restablecer el formulario después de la publicación
     form.reset();
