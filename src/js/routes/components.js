@@ -97,11 +97,17 @@ export const wallZone = () => {
   postContainer.setAttribute('id', 'post-container');
   sectionNodo.appendChild(postContainer);
 
+  // Crea un nuevo elemento de publicación
   const createPost = (valuePost) => {
     const postElement = document.createElement('div');
     postElement.textContent = valuePost;
     postElement.classList.add('postElement');
     postContainer.appendChild(postElement);
+    const divContainerPostElement = document.createElement('div');
+    divContainerPostElement.classList.add('divContainerPostElement');
+    divContainerPostElement.appendChild(postElement);
+    // Agrega el elemento de publicación al postContaine o div vacio
+    postContainer.appendChild(divContainerPostElement);
   };
 
   const handleFormSubmit = (event) => {
@@ -112,7 +118,6 @@ export const wallZone = () => {
     // Aquí se puede ejecutar la lógica para publicar el contenido del formulario
     console.log('Publicando:', textareaValue);
 
-    // Crea un nuevo elemento de publicación
     savePost(textareaValue);
     createPost(textareaValue);
     // const postElement = document.createElement('div');
