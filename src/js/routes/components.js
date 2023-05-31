@@ -1,4 +1,5 @@
-import { savePost } from '../firebase.js';
+// import { async } from 'regenerator-runtime';
+import { savePost, getPosts } from '../firebase.js';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -135,6 +136,14 @@ export const wallZone = () => {
 
   form.addEventListener('submit', handleFormSubmit);
 
+  window.addEventListener('DOMContentLoaded', async () => {
+    // los datos que existen en ese momento
+    const querySnapshot = await getPosts();
+    querySnapshot.forEach((post) => {
+      // console.log(post.data());
+      createPost(post.data().savePostInput);
+    });
+  });
   return sectionNodo;
 };
 
