@@ -1,4 +1,4 @@
-// import { firebaseUser } from '../firebase';
+// import { postInput } from '../firebase';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -91,16 +91,29 @@ export const wallZone = () => {
   divContainerWall.appendChild(form);
   sectionNodo.appendChild(divContainerWall);
 
+  const postContainer = document.createElement('div');
+  postContainer.setAttribute('id', 'post-container');
+  sectionNodo.appendChild(postContainer);
+
   const handleFormSubmit = (event) => {
     event.preventDefault(); // Previene el comportamiento predeterminado del formulario
 
     // Aquí se puede ejecutar la lógica para publicar el contenido del formulario
-    const userInput = createPost.value;
-    console.log('Publicando:', userInput);
+    const PostInput = createPost.value;
+    console.log('Publicando:', PostInput);
 
-    // Resto de la lógica de publicación...
+    // Crea un nuevo elemento de publicación
+    const postElement = document.createElement('div');
+    postElement.textContent = PostInput;
+    postElement.classList.add('postElement');
+    // imgUserForm.cloneNode.appendChild(postElement)
+    // const divContainerPostElement = document.createElement('div');
+    // divContainerPostElement.classList.add('divContainerPostElement');
 
-    // Puedes restablecer el formulario después de la publicación si lo deseas
+    // Agrega el elemento de publicación al postContaine o div vacio
+    postContainer.appendChild(postElement);
+
+    // Puedes restablecer el formulario después de la publicación
     form.reset();
   };
 
