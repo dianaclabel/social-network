@@ -106,6 +106,10 @@ export const wallZone = () => {
     // Crea un nuevo elemento de publicación
     const postElement = document.createElement('div');
     postElement.textContent = PostInput;
+    postElement.classList.add('postElement');
+    // imgUserForm.cloneNode.appendChild(postElement)
+    // const divContainerPostElement = document.createElement('div');
+    // divContainerPostElement.classList.add('divContainerPostElement');
 
     // Agrega el elemento de publicación al postContaine o div vacio
     postContainer.appendChild(postElement);
