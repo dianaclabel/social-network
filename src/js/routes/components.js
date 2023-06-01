@@ -111,8 +111,21 @@ export const wallZone = () => {
     const divContainerPostElement = document.createElement('div');
     divContainerPostElement.classList.add('divContainerPostElement');
 
+    const contrainerImgAndUser = document.createElement('div');
+    contrainerImgAndUser.setAttribute('id', 'imgAndUser');
+
     const imgUserCopia = imgUserForm.cloneNode(true);
     imgUserCopia.classList.add('imgUserCopia');
+
+    const nameUser = document.createElement('h2');
+    nameUser.classList.add('nameUser');
+    nameUser.setAttribute('id', 'nameUser');
+    nameUser.textContent = 'AAAAA';
+
+    contrainerImgAndUser.appendChild(imgUserCopia);
+    contrainerImgAndUser.appendChild(nameUser);
+
+    divContainerPostElement.appendChild(contrainerImgAndUser);
 
     // boton de opcion de editar y eliminar
     const btnIconOption = document.createElement('button');
@@ -217,24 +230,24 @@ export const wallZone = () => {
 
   form.addEventListener('submit', handleFormSubmit);
 
-  // window.addEventListener('DOMContentLoaded', async () => {
-  //   // los datos que existen en ese momento
-  //   const querySnapshot = await getPosts();
-  //   querySnapshot.forEach((post) => {
-  //     // console.log(post.data());
-  //     createPost(post.data().savePostInput);
-  //   });
-  // });
   window.addEventListener('DOMContentLoaded', async () => {
-    try {
-      const querySnapshot = await getPosts();
-      querySnapshot.forEach((post) => {
-        createPost(post.data().savePostInput);
-      });
-    } catch (error) {
-      console.error('Error al obtener los posts:', error);
-    }
+    // los datos que existen en ese momento
+    const querySnapshot = await getPosts();
+    querySnapshot.forEach((post) => {
+      // console.log(post.data());
+      createPost(post.data().savePostInput);
+    });
   });
+  // window.addEventListener('DOMContentLoaded', async () => {
+  //   try {
+  //     const querySnapshot = await getPosts();
+  //     querySnapshot.forEach((post) => {
+  //       createPost(post.data().savePostInput);
+  //     });
+  //   } catch (error) {
+  //     console.error('Error al obtener los posts:', error);
+  //   }
+  // });
 
   return sectionNodo;
 };
