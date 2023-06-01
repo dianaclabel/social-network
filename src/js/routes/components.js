@@ -121,14 +121,6 @@ export const wallZone = () => {
 
     savePost(textareaValue);
     createPost(textareaValue);
-    // const postElement = document.createElement('div');
-    // postElement.textContent = textareaValue;
-    // postElement.classList.add('postElement');
-    // const divContainerPostElement = document.createElement('div');
-    // divContainerPostElement.classList.add('divContainerPostElement');
-
-    // Agrega el elemento de publicación al postContaine o div vacio
-    // postContainer.appendChild(postElement);
 
     // Puedes restablecer el formulario después de la publicación
     form.reset();
