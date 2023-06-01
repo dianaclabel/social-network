@@ -36,6 +36,7 @@ export const header = () => {
   return headerNodo;
 };
 
+/** **************** ZONA DE MURO DE PUBLICACIONES**************** */
 export const wallZone = () => {
   const sectionNodo = document.createElement('section');
   sectionNodo.className = 'sectionWall';
@@ -104,9 +105,81 @@ export const wallZone = () => {
     postElement.textContent = valuePost;
     postElement.classList.add('postElement');
     postContainer.appendChild(postElement);
+
     const divContainerPostElement = document.createElement('div');
     divContainerPostElement.classList.add('divContainerPostElement');
+
+    const imgUserCopia = imgUserForm.cloneNode(true);
+    imgUserCopia.classList.add('imgUserCopia');
+    divContainerPostElement.appendChild(imgUserCopia);
+
+    // BOTON DE OPCION EDITAR Y ELIMINAR
+    const btnIconOption = document.createElement('button');
+    btnIconOption.setAttribute('type', 'button');
+    btnIconOption.setAttribute('id', 'btnIconOption');
+    btnIconOption.classList.add('btnIconOption');
+
+    const iconOptionsPost = document.createElement('img');
+    iconOptionsPost.src = '../../icon/editOelimin.png';
+    iconOptionsPost.alt = 'icono para opcion editar eliminar';
+    iconOptionsPost.classList.add('iconOptionsPost');
+    iconOptionsPost.id = 'iconOptionsPost';
+    btnIconOption.appendChild(iconOptionsPost);
+
+    // CREACION DEL MODAL PARA OPCIONES EDITAR Y ELIMINAR
+    const modalPopupOption = document.createElement('div');
+    modalPopupOption.classList.add('modalPopupOption');
+
+    // Crear la lista dentro del modal
+    const ulModal = document.createElement('ul');
+
+    // Crear los elementos de lista dentro de la lista
+    const li1 = document.createElement('li');
+    const a1 = document.createElement('a');
+    a1.href = '#';
+    a1.textContent = 'Editar';
+    li1.appendChild(a1);
+
+    const li2 = document.createElement('li');
+    const a2 = document.createElement('a');
+    a2.href = '#';
+    a2.textContent = 'Eliminar';
+    li2.appendChild(a2);
+
+    ulModal.appendChild(li1);
+    ulModal.appendChild(li2);
+    modalPopupOption.appendChild(ulModal);
+    divContainerPostElement.appendChild(modalPopupOption);
+
+    divContainerPostElement.appendChild(btnIconOption);
+
     divContainerPostElement.appendChild(postElement);
+
+    const divContainerIconPost = document.createElement('div');
+    divContainerIconPost.classList.add('containerIconPost');
+
+    const iconCarrot = document.createElement('img');
+    iconCarrot.src = '../../icon/carrotNot.png';
+    iconCarrot.alt = 'icono like';
+    iconCarrot.classList.add('iconCarrot');
+    iconCarrot.setAttribute('id', 'iconCarrot');
+    divContainerIconPost.appendChild(iconCarrot);
+
+    const iconComment = document.createElement('img');
+    iconComment.src = '../../icon/Comments.png';
+    iconComment.alt = 'icono comentario';
+    iconComment.classList.add('iconPost');
+    iconComment.setAttribute('id', 'iconComment');
+    divContainerIconPost.appendChild(iconComment);
+
+    const iconShare = document.createElement('img');
+    iconShare.src = '../../icon/share.png';
+    iconShare.alt = 'icono compartir';
+    iconShare.classList.add('iconPost');
+    iconShare.setAttribute('id', 'iconShare');
+    divContainerIconPost.appendChild(iconShare);
+
+    divContainerPostElement.appendChild(divContainerIconPost);
     // Agrega el elemento de publicación al postContaine o div vacio
     postContainer.appendChild(divContainerPostElement);
   };
@@ -136,14 +209,25 @@ export const wallZone = () => {
 
   form.addEventListener('submit', handleFormSubmit);
 
+  // window.addEventListener('DOMContentLoaded', async () => {
+  //   // los datos que existen en ese momento
+  //   const querySnapshot = await getPosts();
+  //   querySnapshot.forEach((post) => {
+  //     // console.log(post.data());
+  //     createPost(post.data().savePostInput);
+  //   });
+  // });
   window.addEventListener('DOMContentLoaded', async () => {
-    // los datos que existen en ese momento
-    const querySnapshot = await getPosts();
-    querySnapshot.forEach((post) => {
-      // console.log(post.data());
-      createPost(post.data().savePostInput);
-    });
+    try {
+      const querySnapshot = await getPosts();
+      querySnapshot.forEach((post) => {
+        createPost(post.data().savePostInput);
+      });
+    } catch (error) {
+      console.error('Error al obtener los posts:', error);
+    }
   });
+
   return sectionNodo;
 };
 

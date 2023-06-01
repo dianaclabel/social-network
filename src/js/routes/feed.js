@@ -1,5 +1,4 @@
 import { header, wallZone, footer } from './components.js';
-import { getPosts } from '../firebase.js';
 
 export const feed = () => {
   const sectionEl = document.createElement('section');
@@ -7,7 +6,6 @@ export const feed = () => {
   const wallNodo = wallZone();
   const footerNodoEl = footer();
   sectionEl.append(headerNodoEl, wallNodo, footerNodoEl);
-
 
   return sectionEl;
 };
