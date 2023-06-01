@@ -137,7 +137,37 @@
     width: 30px;
     height: 30px;
     border-radius: 50px;
+    position: absolute;
+     left: 50%;
+     top:20%;
 }
+
+.modalPopupOption{
+    
+    position: fixed;
+    width: 800px;
+    height: 400px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -250px;
+    display: none;
+
+}
+.closeModal{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    border: 2px solid black;
+    text-align: center;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+  }
 
 .iconOptionsPost{
     width: 40px;
@@ -150,6 +180,7 @@
 .iconPost{
     width: 35px;
 }
+
 
 
 

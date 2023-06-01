@@ -88,6 +88,7 @@ export const wallZone = () => {
   form.appendChild(divContainerShare);
   form.appendChild(buttonPost);
 
+  // contenedor de publicacion
   const divContainerWall = document.createElement('div');
   divContainerWall.classList.add('container-wall');
   divContainerWall.setAttribute('id', 'container-wall');
@@ -99,21 +100,21 @@ export const wallZone = () => {
   postContainer.setAttribute('id', 'post-container');
   sectionNodo.appendChild(postContainer);
 
-  // Crea un nuevo elemento de publicación
   const createPost = (valuePost) => {
+    // contenedor de los post
     const postElement = document.createElement('div');
     postElement.textContent = valuePost;
     postElement.classList.add('postElement');
     postContainer.appendChild(postElement);
 
+    // CREAR POST
     const divContainerPostElement = document.createElement('div');
     divContainerPostElement.classList.add('divContainerPostElement');
 
     const imgUserCopia = imgUserForm.cloneNode(true);
     imgUserCopia.classList.add('imgUserCopia');
-    divContainerPostElement.appendChild(imgUserCopia);
 
-    // BOTON DE OPCION EDITAR Y ELIMINAR
+    // boton de opcion de editar y eliminar
     const btnIconOption = document.createElement('button');
     btnIconOption.setAttribute('type', 'button');
     btnIconOption.setAttribute('id', 'btnIconOption');
@@ -126,14 +127,14 @@ export const wallZone = () => {
     iconOptionsPost.id = 'iconOptionsPost';
     btnIconOption.appendChild(iconOptionsPost);
 
-    // CREACION DEL MODAL PARA OPCIONES EDITAR Y ELIMINAR
+    // creacion de modal para editar y eliminar
     const modalPopupOption = document.createElement('div');
     modalPopupOption.classList.add('modalPopupOption');
 
-    // Crear la lista dentro del modal
+    // crear la lista de modal
     const ulModal = document.createElement('ul');
 
-    // Crear los elementos de lista dentro de la lista
+    // crear li dedentro de ul
     const li1 = document.createElement('li');
     const a1 = document.createElement('a');
     a1.href = '#';
@@ -149,12 +150,27 @@ export const wallZone = () => {
     ulModal.appendChild(li1);
     ulModal.appendChild(li2);
     modalPopupOption.appendChild(ulModal);
-    divContainerPostElement.appendChild(modalPopupOption);
 
+    // div para cerrar modal
+    const closePopup = document.createElement('div');
+    closePopup.textContent = 'X';
+    closePopup.classList.add('closeModal');
+    modalPopupOption.appendChild(closePopup);
+
+    divContainerPostElement.appendChild(imgUserCopia);
     divContainerPostElement.appendChild(btnIconOption);
-
+    divContainerPostElement.appendChild(modalPopupOption);
     divContainerPostElement.appendChild(postElement);
 
+    // funciones  de Popup
+    btnIconOption.addEventListener('click', () => {
+      modalPopupOption.style.display = 'block';
+    });
+    closePopup.addEventListener('click', () => {
+      modalPopupOption.style.display = 'none';
+    });
+
+    // contenedor de iconos
     const divContainerIconPost = document.createElement('div');
     divContainerIconPost.classList.add('containerIconPost');
 
