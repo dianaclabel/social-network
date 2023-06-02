@@ -151,16 +151,37 @@ export const wallZone = () => {
 
     // Opción de editar
     const li1 = document.createElement('li');
+    li1.classList.add('liOption');
+    li1.setAttribute('id', 'li1');
+
+    const editIcon = document.createElement('img');
+    editIcon.setAttribute('src', '../../icon/Pencil.png');
+    editIcon.classList.add('optionIcon');
+
     const btnEdit = document.createElement('button');
+    btnEdit.classList.add('btnOptionEditDelete');
     btnEdit.setAttribute('id', 'btnEdit');
     btnEdit.textContent = 'Editar';
+
+    li1.appendChild(editIcon);
     li1.appendChild(btnEdit);
 
     // Opción de eliminar
     const li2 = document.createElement('li');
+    li2.classList.add('liOption');
+    li2.setAttribute('id', 'li2');
+
+    const deleteIcon = document.createElement('img');
+    deleteIcon.setAttribute('src', '../../icon/Delete.png');
+    deleteIcon.classList.add('optionIcon');
+    li2.appendChild(deleteIcon);
+
     const btndelete = document.createElement('button');
+    btndelete.classList.add('btnOptionEditDelete');
     btndelete.setAttribute('id', 'btnDelete');
     btndelete.textContent = 'Eliminar';
+
+    li2.appendChild(deleteIcon);
     li2.appendChild(btndelete);
 
     ulModal.appendChild(li1);
@@ -170,7 +191,7 @@ export const wallZone = () => {
 
     // Botón para cerrar el modal
     const closePopup = document.createElement('img');
-    closePopup.setAttribute('src', '../../icon/Close.png');
+    closePopup.setAttribute('src', '../../icon/cancel.png');
     closePopup.classList.add('closeModal');
     modalPopupOption.appendChild(closePopup);
 
@@ -190,7 +211,7 @@ export const wallZone = () => {
       modalPopupOption.style.display = 'none';
     });
 
-    // Popup para borrar
+    //* *********  POPUP PARA BORRAR **************
     const containerDeletePost = document.createElement('div');
     containerDeletePost.classList.add('containerDeletePost');
     containerDeletePost.setAttribute('id', 'containerDeletePost');
@@ -231,7 +252,7 @@ export const wallZone = () => {
 
     // funciones  de Popup para borrar
     btndelete.addEventListener('click', () => {
-      containerDeletePost.style.display = 'block';
+      containerDeletePost.style.display = 'flex';
     });
     btnNotSure.addEventListener('click', () => {
       containerDeletePost.style.display = 'none';
