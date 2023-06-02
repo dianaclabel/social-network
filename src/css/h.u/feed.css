@@ -115,6 +115,8 @@ section{
     *background-color: blueviolet;
 }
 .divContainerPostElement{
+    display: grid;
+    columns: auto auto auto;
     background-color: var(--color-third-verdeazul);
     padding: 40px;
     margin: 1rem;
@@ -122,7 +124,7 @@ section{
 }
 
 .postElement{
-    height: 100px;
+    height: 150px;
     background-color: rgb(255, 255, 255);
     font-family: "Inder", sans-serif;
     *margin: 1rem;
@@ -135,6 +137,8 @@ section{
     width: 30px;
 }
 
+
+/**********************  BONTON DE EDITAR Y ELIMINAR ****************************************/
 .btnIconOption{
     background: transparent;
     border: none;
@@ -148,6 +152,8 @@ section{
 }
 
 .modalPopupOption{
+    font-family: "Julius Sans One", sans-serif;
+    display: none;
     background-color: var(--color-patito);
     position: fixed;
     width: 230px;
@@ -158,23 +164,70 @@ section{
     margin-left: -70px;
     top: 22%;
     margin-top: -50px;
-    display: none;
+    list-style-type: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 
 .ulModal{
-    margin:30px;
+    display: grid;
+    align-items: center;
+    justify-items: start;
+    justify-content: space-around;
+    align-content: space-around;
+    border: 2px solid var(--color-primary);
+    margin:20px;
+    height: 75%;
+    list-style-type: none;
+    border-radius: 20px;
 }
 
+.liOption{
+    justify-content: space-evenly;
+    text-align: center;
+    display: flex;
+    align-content: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.li2{
+    border-top: 1px solid rgba(254, 152, 1, 1);;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.optionIcon{
+    width: 40px;
+    margin-right: 40px;
+}
 .closeModal{
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border-radius: 25px;
-    border: 2px solid black;
+    border: 2px solid var(--color-primary);
     text-align: center;
     right: 5px;
     top: 5px;
+    margin: 2.5px;
     cursor: pointer;
+  }
+
+  .imgUserCopia2 {
+    width: 30px;
+    margin: 10px;
+  }
+
+  .coment{
+    margin: 10px;
+    padding: 10px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 55%;
+    height: 30px;
+    border: none;
   }
 
 .iconOptionsPost{
