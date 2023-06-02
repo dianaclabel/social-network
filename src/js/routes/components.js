@@ -41,6 +41,7 @@ export const wallZone = () => {
   const sectionNodo = document.createElement('section');
   sectionNodo.className = 'sectionWall';
 
+  // Creación de elementos para el formulario de publicación
   const imgUserForm = document.createElement('img');
   imgUserForm.classList.add('imgUser');
   imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
@@ -53,6 +54,7 @@ export const wallZone = () => {
   newPostText.setAttribute('cols', '30');
   newPostText.setAttribute('rows', '10');
   newPostText.setAttribute('placeholder', 'Publica algo aquí...');
+
   const sharePhoto = document.createElement('img');
   sharePhoto.classList.add('share-icons');
   sharePhoto.setAttribute('src', '../../icon/sharePhoto.png');
@@ -88,29 +90,26 @@ export const wallZone = () => {
   form.appendChild(divContainerShare);
   form.appendChild(buttonPost);
 
-  // contenedor de publicacion
+  // Contenedor de publicación
   const divContainerWall = document.createElement('div');
   divContainerWall.classList.add('container-wall');
   divContainerWall.setAttribute('id', 'container-wall');
   divContainerWall.appendChild(form);
   sectionNodo.appendChild(divContainerWall);
 
-  // contenedor alone div vacio
+  // Contenedor para las publicaciones
   const postContainer = document.createElement('div');
   postContainer.setAttribute('id', 'post-container');
   sectionNodo.appendChild(postContainer);
 
   const createPost = (valuePost) => {
-    // contenedor de los post
+    // Contenedor de cada publicación
     const postElement = document.createElement('div');
     postElement.textContent = valuePost;
     postElement.classList.add('postElement');
     postContainer.appendChild(postElement);
 
-    // CREAR POST
-    const divContainerPostElement = document.createElement('div');
-    divContainerPostElement.classList.add('divContainerPostElement');
-
+    // Contenedor de imagen de usuario y nombre de usuario
     const contrainerImgAndUser = document.createElement('div');
     contrainerImgAndUser.setAttribute('id', 'imgAndUser');
 
@@ -125,9 +124,7 @@ export const wallZone = () => {
     contrainerImgAndUser.appendChild(imgUserCopia);
     contrainerImgAndUser.appendChild(nameUser);
 
-    divContainerPostElement.appendChild(contrainerImgAndUser);
-
-    // boton de opcion de editar y eliminar
+    // Botón de opciones de editar y eliminar
     const btnIconOption = document.createElement('button');
     btnIconOption.setAttribute('type', 'button');
     btnIconOption.setAttribute('id', 'btnIconOption');
@@ -135,47 +132,71 @@ export const wallZone = () => {
 
     const iconOptionsPost = document.createElement('img');
     iconOptionsPost.src = '../../icon/editOelimin.png';
-    iconOptionsPost.alt = 'icono para opcion editar eliminar';
+    iconOptionsPost.alt = 'icono para opción editar eliminar';
     iconOptionsPost.classList.add('iconOptionsPost');
     iconOptionsPost.id = 'iconOptionsPost';
     btnIconOption.appendChild(iconOptionsPost);
 
-    // creacion de modal para editar y eliminar
+    // Modal para opciones de editar y eliminar
     const modalPopupOption = document.createElement('div');
     modalPopupOption.classList.add('modalPopupOption');
 
-    // crear la lista de modal
+    // Lista de opciones en el modal
     const ulModal = document.createElement('ul');
     ulModal.classList.add('ulModal');
 
-    // crear li dedentro de ul
+    // Opción de editar
     const li1 = document.createElement('li');
+    li1.classList.add('liOption');
+    li1.setAttribute('id', 'li1');
+
+    const editIcon = document.createElement('img');
+    editIcon.setAttribute('src', '../../icon/Pencil.png');
+    editIcon.classList.add('optionIcon');
+
     const a1 = document.createElement('a');
+    a1.setAttribute('id', 'a1');
+    a1.classList.add('a1');
+
     a1.href = '#';
     a1.textContent = 'Editar';
+    li1.appendChild(editIcon);
     li1.appendChild(a1);
 
+    // Opción de eliminar
     const li2 = document.createElement('li');
+    li2.classList.add('liOption');
+    li2.setAttribute('id', 'li2');
     const a2 = document.createElement('a');
     a2.href = '#';
     a2.textContent = 'Eliminar';
+
+    const deleteIcon = document.createElement('img');
+    deleteIcon.setAttribute('src', '../../icon/Delete.png');
+    deleteIcon.classList.add('optionIcon');
+    li2.appendChild(deleteIcon);
     li2.appendChild(a2);
 
     ulModal.appendChild(li1);
     ulModal.appendChild(li2);
+
     modalPopupOption.appendChild(ulModal);
 
-    // div para cerrar modal
-    const closePopup = document.createElement('div');
-    closePopup.textContent = 'X';
+    // Botón para cerrar el modal
+    const closePopup = document.createElement('img');
+    closePopup.setAttribute('src', '../../icon/Close.png');
     closePopup.classList.add('closeModal');
     modalPopupOption.appendChild(closePopup);
 
+    // Agregar elementos al contenedor de la publicación
+    const divContainerPostElement = document.createElement('div');
+    divContainerPostElement.classList.add('divContainerPostElement');
+    divContainerPostElement.appendChild(contrainerImgAndUser);
     divContainerPostElement.appendChild(btnIconOption);
     divContainerPostElement.appendChild(modalPopupOption);
     divContainerPostElement.appendChild(postElement);
 
-    // funciones  de Popup
+    // Funciones del modal
     btnIconOption.addEventListener('click', () => {
       modalPopupOption.style.display = 'block';
     });
@@ -183,7 +204,16 @@ export const wallZone = () => {
       modalPopupOption.style.display = 'none';
     });
 
-    // contenedor de iconos
+    const imgUserCopia2 = imgUserForm.cloneNode(true);
+    imgUserCopia2.classList.add('imgUserCopia2');
+    divContainerPostElement.appendChild(imgUserCopia2);
+
+    const coment = document.createElement('input');
+    coment.classList.add('coment');
+    coment.setAttribute('type', 'text');
+    coment.setAttribute('placeholder', 'Deja tu comentario...');
+    divContainerPostElement.appendChild(coment);
+    // Contenedor de iconos
     const divContainerIconPost = document.createElement('div');
     divContainerIconPost.classList.add('containerIconPost');
 
@@ -209,7 +239,8 @@ export const wallZone = () => {
     divContainerIconPost.appendChild(iconShare);
 
     divContainerPostElement.appendChild(divContainerIconPost);
-    // Agrega el elemento de publicación al postContaine o div vacio
+
+    // Agrega la publicación al contenedor de publicaciones
     postContainer.appendChild(divContainerPostElement);
   };
 
@@ -218,36 +249,24 @@ export const wallZone = () => {
     const data = new FormData(form);
     const textareaValue = data.get('textareaEl');
 
-    // Aquí se puede ejecutar la lógica para publicar el contenido del formulario
-    console.log('Publicando:', textareaValue);
+    // console.log('Publicando:', textareaValue);
 
     savePost(textareaValue);
     createPost(textareaValue);
 
-    // Puedes restablecer el formulario después de la publicación
+    // Restablecer el formulario después de la publicación
     form.reset();
   };
 
   form.addEventListener('submit', handleFormSubmit);
 
   window.addEventListener('DOMContentLoaded', async () => {
-    // los datos que existen en ese momento
+    // Obtener los datos existentes en ese momento
     const querySnapshot = await getPosts();
     querySnapshot.forEach((post) => {
-      // console.log(post.data());
       createPost(post.data().savePostInput);
     });
   });
-  // window.addEventListener('DOMContentLoaded', async () => {
-  //   try {
-  //     const querySnapshot = await getPosts();
-  //     querySnapshot.forEach((post) => {
-  //       createPost(post.data().savePostInput);
-  //     });
-  //   } catch (error) {
-  //     console.error('Error al obtener los posts:', error);
-  //   }
-  // });
 
   return sectionNodo;
 };
