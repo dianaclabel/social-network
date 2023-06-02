@@ -151,6 +151,7 @@ export const wallZone = () => {
 
     // crear la lista de modal
     const ulModal = document.createElement('ul');
+    ulModal.classList.add('ulModal');
 
     // crear li dedentro de ul
     const li1 = document.createElement('li');
@@ -175,7 +176,6 @@ export const wallZone = () => {
     closePopup.classList.add('closeModal');
     modalPopupOption.appendChild(closePopup);
 
-    divContainerPostElement.appendChild(imgUserCopia);
     divContainerPostElement.appendChild(btnIconOption);
     divContainerPostElement.appendChild(modalPopupOption);
     divContainerPostElement.appendChild(postElement);
