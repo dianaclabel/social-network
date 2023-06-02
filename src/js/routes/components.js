@@ -292,11 +292,11 @@ export const footer = () => {
   imgIconAdd.className = 'iconFooter';
   imgIconAdd.id = 'iconAdd';
   divContainerMenu.appendChild(imgIconAdd);
-  const aIconAdd = document.createElement('a');
-  aIconAdd.classList.add('linksIcons');
-  aIconAdd.setAttribute('href', '/');
-  aIconAdd.appendChild(imgIconAdd);
-  divContainerMenu.appendChild(aIconAdd);
+  const btnIconAdd = document.createElement('button');
+  btnIconAdd.classList.add('linksIcons');
+  btnIconAdd.setAttribute('id', 'btnIconAdd');
+  btnIconAdd.appendChild(imgIconAdd);
+  divContainerMenu.appendChild(btnIconAdd);
 
   /**  **********   ICONO CARROT     ************ */
 

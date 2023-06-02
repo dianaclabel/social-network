@@ -216,6 +216,11 @@ section{
     margin: 5px;
 }
 
+#btnIconAdd{
+    background: transparent;
+    border: none;
+}
+
 .iconFooter{
     width: 100%
 }
