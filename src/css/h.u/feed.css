@@ -1,8 +1,13 @@
 /******************* HEADER     ********************/
+section{
+    min-height: 100vh;
+}
 .headerPrincipal{
     background-color: var(--color-patito);
     border-radius: 0 0 20px 20px;
     position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .contenedor-header{
@@ -194,15 +199,13 @@
 .footerHome{
     background-color: var(--color-patito);
     border-radius: 10px 10px 0 0;
-    position: absolute;
+    position: sticky;
     height: 10%;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items:center ;
-    
-    
 }
 
 .container-menu{
