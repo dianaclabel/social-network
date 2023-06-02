@@ -151,13 +151,9 @@ section{
     top:20%;
 }
 
-<<<<<<< HEAD
 .modalPopupOption,.containerDeletePost{
-=======
-.modalPopupOption{
     font-family: "Julius Sans One", sans-serif;
     display: none;
->>>>>>> 1c4e4a09c7196392713b1a056ef0954c95f5c4b4
     background-color: var(--color-patito);
     position: fixed;
     width: 230px;
