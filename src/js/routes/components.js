@@ -1,5 +1,5 @@
 // import { async } from 'regenerator-runtime';
-import { savePost, getPosts } from '../firebase.js';
+import { firebaseUser, savePost, getPosts } from '../firebase.js';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -120,7 +120,12 @@ export const wallZone = () => {
     const nameUser = document.createElement('h2');
     nameUser.classList.add('nameUser');
     nameUser.setAttribute('id', 'nameUser');
-    nameUser.textContent = 'AAAAA';
+    const user = firebaseUser();
+    if (user) {
+      nameUser.textContent = user.displayName;
+    }
+    // nameUser.textContent = 'AAAAA';
+    // const name = sectionEl.querySelector('#user-name');
 
     contrainerImgAndUser.appendChild(imgUserCopia);
     contrainerImgAndUser.appendChild(nameUser);
