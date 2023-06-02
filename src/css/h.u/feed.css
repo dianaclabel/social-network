@@ -192,11 +192,11 @@ section{
     align-items: center;
 }
 
-.li2{
+/* .li2{
     border-top: 1px solid rgba(254, 152, 1, 1);;
     padding-top: 10px;
     width: 100%;
-}
+} */
 
 .optionIcon{
     width: 40px;
