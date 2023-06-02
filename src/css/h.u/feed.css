@@ -151,7 +151,7 @@ section{
     top:20%;
 }
 
-.modalPopupOption{
+.modalPopupOption,.containerDeletePost{
     font-family: "Julius Sans One", sans-serif;
     display: none;
     background-color: var(--color-patito);
@@ -213,7 +213,7 @@ section{
     top: 5px;
     margin: 2.5px;
     cursor: pointer;
-  }
+}
 
   .imgUserCopia2 {
     width: 30px;

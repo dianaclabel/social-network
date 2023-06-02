@@ -1,5 +1,5 @@
 // import { async } from 'regenerator-runtime';
-import { savePost, getPosts } from '../firebase.js';
+import { firebaseUser, savePost, getPosts } from '../firebase.js';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -116,10 +116,14 @@ export const wallZone = () => {
     const imgUserCopia = imgUserForm.cloneNode(true);
     imgUserCopia.classList.add('imgUserCopia');
 
+    // nombre del usuario
     const nameUser = document.createElement('h2');
     nameUser.classList.add('nameUser');
     nameUser.setAttribute('id', 'nameUser');
-    nameUser.textContent = 'AAAAA';
+    const user = firebaseUser();
+    if (user) {
+      nameUser.textContent = user.displayName;
+    }
 
     contrainerImgAndUser.appendChild(imgUserCopia);
     contrainerImgAndUser.appendChild(nameUser);
@@ -147,35 +151,17 @@ export const wallZone = () => {
 
     // Opción de editar
     const li1 = document.createElement('li');
-    li1.classList.add('liOption');
-    li1.setAttribute('id', 'li1');
-
-    const editIcon = document.createElement('img');
-    editIcon.setAttribute('src', '../../icon/Pencil.png');
-    editIcon.classList.add('optionIcon');
-
-    const a1 = document.createElement('a');
-    a1.setAttribute('id', 'a1');
-    a1.classList.add('a1');
-
-    a1.href = '#';
-    a1.textContent = 'Editar';
-    li1.appendChild(editIcon);
-    li1.appendChild(a1);
+    const btnEdit = document.createElement('button');
+    btnEdit.setAttribute('id', 'btnEdit');
+    btnEdit.textContent = 'Editar';
+    li1.appendChild(btnEdit);
 
     // Opción de eliminar
     const li2 = document.createElement('li');
-    li2.classList.add('liOption');
-    li2.setAttribute('id', 'li2');
-    const a2 = document.createElement('a');
-    a2.href = '#';
-    a2.textContent = 'Eliminar';
-
-    const deleteIcon = document.createElement('img');
-    deleteIcon.setAttribute('src', '../../icon/Delete.png');
-    deleteIcon.classList.add('optionIcon');
-    li2.appendChild(deleteIcon);
-    li2.appendChild(a2);
+    const btndelete = document.createElement('button');
+    btndelete.setAttribute('id', 'btnDelete');
+    btndelete.textContent = 'Eliminar';
+    li2.appendChild(btndelete);
 
     ulModal.appendChild(li1);
     ulModal.appendChild(li2);
@@ -204,6 +190,55 @@ export const wallZone = () => {
       modalPopupOption.style.display = 'none';
     });
 
+    // Popup para borrar
+    const containerDeletePost = document.createElement('div');
+    containerDeletePost.classList.add('containerDeletePost');
+    containerDeletePost.setAttribute('id', 'containerDeletePost');
+
+    const iconBack = document.createElement('img');
+    iconBack.setAttribute('src', '../../icon/Back.png');
+    iconBack.classList.add('iconBack');
+    iconBack.setAttribute('id', 'iconBack');
+
+    const btnBack = document.createElement('button');
+    btnBack.setAttribute('id', 'btnBack');
+    btnBack.appendChild(iconBack);
+
+    const questionDelete = document.createElement('h2');
+    questionDelete.classList.add('question-Delete');
+    questionDelete.textContent = '¿Eliminar publicación?';
+
+    const paragraphDelete = document.createElement('p');
+    paragraphDelete.classList.add('paragraph-Delete');
+    paragraphDelete.textContent = 'Realmente quieres eliminar esta publicación.';
+
+    const btnNotSure = document.createElement('button');
+    btnNotSure.classList.add('btnNotSure');
+    btnBack.setAttribute('id', 'btnNotSure');
+    btnNotSure.textContent = 'No, estoy segur@';
+
+    const btnSure = document.createElement('button');
+    btnSure.classList.add('btnSure');
+    btnBack.setAttribute('id', 'btnSure');
+    btnSure.textContent = 'Si, estoy segur@';
+
+    containerDeletePost.appendChild(btnBack);
+    containerDeletePost.appendChild(questionDelete);
+    containerDeletePost.appendChild(paragraphDelete);
+    containerDeletePost.appendChild(btnNotSure);
+    containerDeletePost.appendChild(btnSure);
+    divContainerPostElement.appendChild(containerDeletePost);
+
+    // funciones  de Popup para borrar
+    btndelete.addEventListener('click', () => {
+      containerDeletePost.style.display = 'block';
+    });
+    btnNotSure.addEventListener('click', () => {
+      containerDeletePost.style.display = 'none';
+      modalPopupOption.style.display = 'none';
+    });
+
+    // contenedor de iconos
     const imgUserCopia2 = imgUserForm.cloneNode(true);
     imgUserCopia2.classList.add('imgUserCopia2');
     divContainerPostElement.appendChild(imgUserCopia2);
