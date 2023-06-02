@@ -147,7 +147,7 @@ section{
     top:20%;
 }
 
-.modalPopupOption{
+.modalPopupOption,.containerDeletePost{
     background-color: var(--color-patito);
     position: fixed;
     width: 230px;
@@ -175,7 +175,7 @@ section{
     right: 5px;
     top: 5px;
     cursor: pointer;
-  }
+}
 
 .iconOptionsPost{
     width: 40px;

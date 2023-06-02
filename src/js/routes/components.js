@@ -117,6 +117,7 @@ export const wallZone = () => {
     const imgUserCopia = imgUserForm.cloneNode(true);
     imgUserCopia.classList.add('imgUserCopia');
 
+    // nombre del usuario
     const nameUser = document.createElement('h2');
     nameUser.classList.add('nameUser');
     nameUser.setAttribute('id', 'nameUser');
@@ -124,8 +125,6 @@ export const wallZone = () => {
     if (user) {
       nameUser.textContent = user.displayName;
     }
-    // nameUser.textContent = 'AAAAA';
-    // const name = sectionEl.querySelector('#user-name');
 
     contrainerImgAndUser.appendChild(imgUserCopia);
     contrainerImgAndUser.appendChild(nameUser);
@@ -155,20 +154,25 @@ export const wallZone = () => {
 
     // crear li dedentro de ul
     const li1 = document.createElement('li');
-    const a1 = document.createElement('a');
-    a1.href = '#';
-    a1.textContent = 'Editar';
-    li1.appendChild(a1);
+    const btnEdit = document.createElement('button');
+    btnEdit.setAttribute('id', 'btnEdit');
+    btnEdit.textContent = 'Editar';
+    li1.appendChild(btnEdit);
 
     const li2 = document.createElement('li');
-    const a2 = document.createElement('a');
-    a2.href = '#';
-    a2.textContent = 'Eliminar';
-    li2.appendChild(a2);
+    const btndelete = document.createElement('button');
+    btndelete.setAttribute('id', 'btnDelete');
+    btndelete.textContent = 'Eliminar';
+    li2.appendChild(btndelete);
 
     ulModal.appendChild(li1);
     ulModal.appendChild(li2);
+
     modalPopupOption.appendChild(ulModal);
+
+    divContainerPostElement.appendChild(btnIconOption);
+    divContainerPostElement.appendChild(modalPopupOption);
+    divContainerPostElement.appendChild(postElement);
 
     // div para cerrar modal
     const closePopup = document.createElement('div');
@@ -176,15 +180,59 @@ export const wallZone = () => {
     closePopup.classList.add('closeModal');
     modalPopupOption.appendChild(closePopup);
 
-    divContainerPostElement.appendChild(btnIconOption);
-    divContainerPostElement.appendChild(modalPopupOption);
-    divContainerPostElement.appendChild(postElement);
-
     // funciones  de Popup
     btnIconOption.addEventListener('click', () => {
       modalPopupOption.style.display = 'block';
     });
     closePopup.addEventListener('click', () => {
+      modalPopupOption.style.display = 'none';
+    });
+
+    // Popup para borrar
+    const containerDeletePost = document.createElement('div');
+    containerDeletePost.classList.add('containerDeletePost');
+    containerDeletePost.setAttribute('id', 'containerDeletePost');
+
+    const iconBack = document.createElement('img');
+    iconBack.setAttribute('src', '../../icon/Back.png');
+    iconBack.classList.add('iconBack');
+    iconBack.setAttribute('id', 'iconBack');
+
+    const btnBack = document.createElement('button');
+    btnBack.setAttribute('id', 'btnBack');
+    btnBack.appendChild(iconBack);
+
+    const questionDelete = document.createElement('h2');
+    questionDelete.classList.add('question-Delete');
+    questionDelete.textContent = '¿Eliminar publicación?';
+
+    const paragraphDelete = document.createElement('p');
+    paragraphDelete.classList.add('paragraph-Delete');
+    paragraphDelete.textContent = 'Realmente quieres eliminar esta publicación.';
+
+    const btnNotSure = document.createElement('button');
+    btnNotSure.classList.add('btnNotSure');
+    btnBack.setAttribute('id', 'btnNotSure');
+    btnNotSure.textContent = 'No, estoy segur@';
+
+    const btnSure = document.createElement('button');
+    btnSure.classList.add('btnSure');
+    btnBack.setAttribute('id', 'btnSure');
+    btnSure.textContent = 'Si, estoy segur@';
+
+    containerDeletePost.appendChild(btnBack);
+    containerDeletePost.appendChild(questionDelete);
+    containerDeletePost.appendChild(paragraphDelete);
+    containerDeletePost.appendChild(btnNotSure);
+    containerDeletePost.appendChild(btnSure);
+    divContainerPostElement.appendChild(containerDeletePost);
+
+    // funciones  de Popup para borrar
+    btndelete.addEventListener('click', () => {
+      containerDeletePost.style.display = 'block';
+    });
+    btnNotSure.addEventListener('click', () => {
+      containerDeletePost.style.display = 'none';
       modalPopupOption.style.display = 'none';
     });
 
