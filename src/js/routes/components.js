@@ -127,7 +127,6 @@ export const wallZone = () => {
     // Puedes restablecer el formulario después de la publicación
     form.reset();
   };
-
   form.addEventListener('submit', handleFormSubmit);
 
   return sectionNodo;
