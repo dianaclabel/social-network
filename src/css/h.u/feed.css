@@ -1,8 +1,13 @@
 /******************* HEADER     ********************/
+section{
+    min-height: 100vh;
+}
 .headerPrincipal{
     background-color: var(--color-patito);
     border-radius: 0 0 20px 20px;
     position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .contenedor-header{
@@ -105,38 +110,211 @@
 
 /******************* DIV CONTENEDOR DE PUBLICACIONES    ********************/
 #post-container{
-    *background-color: var(--color-third-verdeazul);
     margin: 1rem;
-    padding: 1rem;
+    *padding: 1rem;
+    *background-color: blueviolet;
+}
+.divContainerPostElement{
+    display: grid;
+    columns: auto auto auto;
+    background-color: var(--color-third-verdeazul);
+    padding: 40px;
+    margin: 1rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .postElement{
+    height: 150px;
     background-color: rgb(255, 255, 255);
     font-family: "Inder", sans-serif;
-    margin: 1rem;
-    border: 1px var(--color-primary);
+    *margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
 }
 
-.divContainerPostElement{
-    background-color: var(--color-third-verdeazul);
-    padding: 30px;
-    margin: 1rem;
+.imgUserCopia{
+    margin-bottom:5px;
+    width: 30px;
 }
+
+
+/**********************  BONTON DE EDITAR Y ELIMINAR ****************************************/
+.btnIconOption{
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    position: absolute;
+    left: 50%;
+    top:20%;
+}
+
+.modalPopupOption,.containerDeletePost{
+    font-family: "Julius Sans One", sans-serif;
+    display: none;
+    background-color: var(--color-patito);
+    position: fixed;
+    width: 230px;
+    height: 150px;
+    border: 2px solid var(--color-primary);
+    border-radius: 30px;
+    left: 50%;
+    margin-left: -70px;
+    top: 22%;
+    margin-top: -50px;
+    list-style-type: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+.ulModal{
+    display: grid;
+    align-items: center;
+    justify-items: start;
+    justify-content: space-around;
+    align-content: space-around;
+    margin:20px;
+    height: 75%;
+    list-style-type: none;
+    border-radius: 20px;
+}
+
+.liOption{
+    justify-content: space-evenly;
+    text-align: center;
+    display: flex;
+    align-content: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btnOptionEditDelete{
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+}
+
+
+.optionIcon{
+    width: 45px;
+    margin-right: 30px;
+}
+
+.closeModal{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    right: 5px;
+    top: 2px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.imgUserCopia2 {
+    width: 30px;
+    margin: 10px;
+}
+
+.coment{
+    margin: 10px;
+    padding: 10px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 55%;
+    height: 30px;
+    border: none;
+}
+
+.iconOptionsPost{
+    width: 40px;
+}
+
+.iconCarrot{
+    width: 50px;
+}
+
+.iconPost{
+    width: 35px;
+}
+
+/************* 2DO POP UP ***********/
+.containerDeletePost{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 250px;
+    border-radius: 30px;
+    left: 50%;
+    margin-left: -140px;
+    top: 22%;
+    margin-top: -50px;
+}
+
+.question-Delete{
+    margin: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.iconBack{
+    margin-left: -50%;
+    position: absolute;
+}
+
+.paragraph-Delete{
+    font-size: 15px;
+    *margin: 5px;
+    padding:  10px 40px 10px 40px;
+    text-align: center;
+}
+
+.btnNotSure , .btnSure{
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 700;
+    width: 150px;
+    height: 45px;
+    margin: 5px;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.btnNotSure{
+    background-color: var(--color-third-verdeazul);
+    color: var(--color-primary);
+}
+
+.btnSure{
+    background-color: var(--color-primary);
+    color: white;
+}
+
+
+
+
+
+
+
 
 
 /******************* FOOTER     ********************/
 .footerHome{
     background-color: var(--color-patito);
     border-radius: 10px 10px 0 0;
-    position: absolute;
+    position: sticky;
     height: 10%;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items:center ;
-    
-    
 }
 
 .container-menu{
@@ -148,6 +326,11 @@
 
 .linksIcons{
     margin: 5px;
+}
+
+#btnIconAdd{
+    background: transparent;
+    border: none;
 }
 
 .iconFooter{

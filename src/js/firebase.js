@@ -8,7 +8,9 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import {
+  getFirestore, collection, addDoc, getDocs,
+} from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -31,7 +33,7 @@ const db = getFirestore(app);
 
 export const savePost = (savePostInput) => {
   console.log(savePostInput);
-  addDoc(collection(db, 'post'), { savePostInput });
+  addDoc(collection(db, 'posts'), { savePostInput });
 };
 
 export const firebaseRegister = (name, email, password) => createUserWithEmailAndPassword(
@@ -48,6 +50,8 @@ export const firebaseGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
+// getTaks
+export const getPosts = () => getDocs(collection(db, 'posts'));
 
 // --------------Logaut----------------------------------------
 // export function signOutUser() {
