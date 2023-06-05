@@ -26,7 +26,7 @@ export const header = () => {
   imgBell.alt = 'campana-notificacion';
 
   imgUserPhoto.className = 'iconUserPhotoHeader';
-  imgUserPhoto.src = '../../image/usuarioCarrot.png';
+  imgUserPhoto.src = '../../image/fotoUsuario.png';
   imgUserPhoto.id = 'userPhoto';
 
   divContainerUser.appendChild(imgBell);
@@ -52,10 +52,15 @@ export const wallZone = () => {
   storiesImg.setAttribute('alt', 'imagenes de historias');
   sectionNodo.append(storiesImg);
 
+  const closePopupPublish = document.createElement('img');
+  closePopupPublish.className = 'closePopupPublish';
+  closePopupPublish.setAttribute('src', '../../icon/cancel.png');
+  closePopupPublish.setAttribute('alt', 'Icono para cerrar Popup');
+
   // Creación de elementos para el formulario de publicación
   const imgUserForm = document.createElement('img');
   imgUserForm.classList.add('imgUser');
-  imgUserForm.setAttribute('src', '../../image/perfil.png');
+  imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
   imgUserForm.setAttribute('alt', 'imagen-usuario');
 
   const newPostText = document.createElement('textarea');
@@ -105,6 +110,7 @@ export const wallZone = () => {
   // Contenedor de publicación
   divContainerWall.classList.add('container-wall');
   divContainerWall.setAttribute('id', 'container-wall');
+  divContainerWall.appendChild(closePopupPublish);
   divContainerWall.appendChild(form);
   sectionNodo.appendChild(divContainerWall);
 

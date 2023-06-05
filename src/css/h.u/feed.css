@@ -61,6 +61,13 @@ section{
     display: block;
 }
 
+.closePopupPublish{
+    position: absolute;
+    margin-top: -4%;
+    margin-left: 88.50%;
+    width: 25.5px;
+}
+
 .form-post {
     border: 2px solid var(--color-primary);
     background-color: white;
@@ -287,7 +294,7 @@ section{
 }
 
 .iconCarrot{
-    width: 21.5px;
+    width: 24px;
 }
 
 .iconPost{
