@@ -340,7 +340,6 @@ export const wallZone = () => {
     const postRef = await savePost(content, author);
     createPost(postRef.id, { content, author });
   };
-
   form.addEventListener('submit', handleFormSubmit);
 
   window.addEventListener('DOMContentLoaded', async () => {

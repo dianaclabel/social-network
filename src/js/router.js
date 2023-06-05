@@ -29,7 +29,7 @@ function navigateTo(path) {
   console.log(path);
   const route = routes.find((r) => r.path === path);
   let render;
-  console.log(route);
+   console.log(route);
   if (route) {
     render = route.render;
   } else {
