@@ -9,7 +9,8 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc, getDocs,
+  getFirestore, collection, addDoc, getDocs, doc,
+  deleteDoc,
 } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,9 +32,9 @@ const auth = getAuth(app);
 
 const db = getFirestore(app);
 
-export const savePost = (savePostInput) => {
-  //console.log(savePostInput);
-  addDoc(collection(db, 'posts'), { savePostInput });
+export const savePost = (content, author) => {
+  console.log(content);
+  return addDoc(collection(db, 'posts'), { content, author });
 };
 
 export const firebaseRegister = (name, email, password) => createUserWithEmailAndPassword(
@@ -52,6 +53,7 @@ export const firebaseGoogle = () => {
 };
 // getTaks
 export const getPosts = () => getDocs(collection(db, 'posts'));
+export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
 // --------------Logaut----------------------------------------
 // export function signOutUser() {
