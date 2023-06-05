@@ -1,8 +1,8 @@
 // importamos la funcion que vamos a testear
-import { firebaseRegister } from '../src/lib/index';
+import { wallZone } from '../src/js/routes/components.js';
 
-/* describe('', (firebaseRegister) => {
+describe('renderizar feed', () => {
   it('debería ser una función', () => {
-    expect(data).toBe('function');
+    wallZone();
   });
-
+});
