@@ -48,7 +48,7 @@ export const loginTemplate = (navigateTo) => {
     const formData = new FormData(loginform);
     const email = formData.get('email');
     const password = formData.get('password');
-     console.log(formData, email, password);
+    console.log(formData, email, password);
 
     firebaseLogin(email, password)
       .then((userCredential) => {
@@ -59,8 +59,8 @@ export const loginTemplate = (navigateTo) => {
         }
       })
       .catch((error) => {
-         alert('usuario o contraseña incorrecta');
-         console.log(error);
+        alert('usuario o contraseña incorrecta');
+        console.log(error);
       });
   });
 
@@ -71,7 +71,7 @@ export const loginTemplate = (navigateTo) => {
       .then((result) => {
       // Se ha iniciado sesión exitosamente
         const credential = GoogleAuthProvider.credentialFromResult(result);
-         console.log(credential);
+        console.log(credential);
         const token = credential.accessToken;
         const user = result.user;
         navigateTo('/');

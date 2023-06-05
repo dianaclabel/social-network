@@ -6,7 +6,7 @@ import { feed } from './routes/feed.js';
 
 export const routes = [
   {
-    path: '/home',
+    path: '/feed',
     render: feed,
   },
   {
@@ -14,7 +14,7 @@ export const routes = [
     render: registerTemplate,
   },
   {
-    path: '/login',
+    path: '/',
     render: loginTemplate,
   },
   {
@@ -29,7 +29,7 @@ function navigateTo(path) {
   console.log(path);
   const route = routes.find((r) => r.path === path);
   let render;
-   console.log(route);
+  console.log(route);
   if (route) {
     render = route.render;
   } else {

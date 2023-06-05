@@ -3,13 +3,15 @@
   background-size: cover;
   background-repeat: repeat;
   min-height: 100vh;
-background-position: center;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .numero {
   height: 400px;
   width: 300px;
-  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +27,7 @@ background-position: center;
   font-weight: 700;           
 }
 .parrafoDos {
-  margin: 40px;
+  margin: 38px;
   font-size: 18px;
   font-family: "Julius Sans One", sans-serif;
   color: black;
