@@ -1,5 +1,7 @@
 // import { async } from 'regenerator-runtime';
-import { firebaseUser, savePost, getPosts } from '../firebase.js';
+import {
+  firebaseUser, savePost, getPosts, deletePost,
+} from '../firebase.js';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -37,6 +39,8 @@ export const header = () => {
 };
 
 /** **************** ZONA DE MURO DE PUBLICACIONES**************** */
+const divContainerWall = document.createElement('div');
+
 export const wallZone = () => {
   const sectionNodo = document.createElement('section');
   sectionNodo.className = 'sectionWall';
@@ -44,10 +48,11 @@ export const wallZone = () => {
   // Creación de elementos para el formulario de publicación
   const imgUserForm = document.createElement('img');
   imgUserForm.classList.add('imgUser');
-  imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
+  imgUserForm.setAttribute('src', '../../image/perfil.png');
   imgUserForm.setAttribute('alt', 'imagen-usuario');
 
   const newPostText = document.createElement('textarea');
+  // newPostText.setAttribute('required', true);
   newPostText.classList.add('containerCreatePost');
   newPostText.setAttribute('id', 'inputCreatePost');
   newPostText.setAttribute('name', 'textareaEl');
@@ -91,7 +96,6 @@ export const wallZone = () => {
   form.appendChild(buttonPost);
 
   // Contenedor de publicación
-  const divContainerWall = document.createElement('div');
   divContainerWall.classList.add('container-wall');
   divContainerWall.setAttribute('id', 'container-wall');
   divContainerWall.appendChild(form);
@@ -102,16 +106,17 @@ export const wallZone = () => {
   postContainer.setAttribute('id', 'post-container');
   sectionNodo.appendChild(postContainer);
 
-  const createPost = (valuePost) => {
+  const createPost = (postId, postData) => {
     // Contenedor de cada publicación
     const postElement = document.createElement('div');
-    postElement.textContent = valuePost;
+    postElement.textContent = postData.content;
     postElement.classList.add('postElement');
     postContainer.appendChild(postElement);
 
     // Contenedor de imagen de usuario y nombre de usuario
-    const contrainerImgAndUser = document.createElement('div');
-    contrainerImgAndUser.setAttribute('id', 'imgAndUser');
+    const containerImgAndUser = document.createElement('div');
+    containerImgAndUser.classList.add('imgAndUser');
+    containerImgAndUser.setAttribute('id', 'imgAndUser');
 
     const imgUserCopia = imgUserForm.cloneNode(true);
     imgUserCopia.classList.add('imgUserCopia');
@@ -120,13 +125,10 @@ export const wallZone = () => {
     const nameUser = document.createElement('h2');
     nameUser.classList.add('nameUser');
     nameUser.setAttribute('id', 'nameUser');
-    const user = firebaseUser();
-    if (user) {
-      nameUser.textContent = user.displayName;
-    }
+    nameUser.textContent = postData.author;
 
-    contrainerImgAndUser.appendChild(imgUserCopia);
-    contrainerImgAndUser.appendChild(nameUser);
+    containerImgAndUser.appendChild(imgUserCopia);
+    containerImgAndUser.appendChild(nameUser);
 
     // Botón de opciones de editar y eliminar
     const btnIconOption = document.createElement('button');
@@ -198,7 +200,7 @@ export const wallZone = () => {
     // Agregar elementos al contenedor de la publicación
     const divContainerPostElement = document.createElement('div');
     divContainerPostElement.classList.add('divContainerPostElement');
-    divContainerPostElement.appendChild(contrainerImgAndUser);
+    divContainerPostElement.appendChild(containerImgAndUser);
     divContainerPostElement.appendChild(btnIconOption);
     divContainerPostElement.appendChild(modalPopupOption);
     divContainerPostElement.appendChild(postElement);
@@ -250,7 +252,7 @@ export const wallZone = () => {
     containerDeletePost.appendChild(btnSure);
     divContainerPostElement.appendChild(containerDeletePost);
 
-    // funciones  de Popup para borrar
+    // funciones  para mostrar en  Popup de borrar
     btndelete.addEventListener('click', () => {
       containerDeletePost.style.display = 'flex';
     });
@@ -259,22 +261,42 @@ export const wallZone = () => {
       modalPopupOption.style.display = 'none';
     });
 
+    // funcion para regresar a las opciones de borarra o editar
+    btnBack.addEventListener('click', () => {
+      containerDeletePost.style.display = 'none';
+    });
+
+    // funcion para borrar
+
+    const btnsDeleteSure = containerDeletePost.querySelector('.btnSure');
+    btnsDeleteSure.addEventListener('click', () => {
+      // llamar a la funcion delte
+      deletePost(postId);
+      divContainerPostElement.remove();
+    });
+
     // contenedor de iconos
+    const containerComent = document.createElement('div');
+    containerComent.classList.add('containerComent');
+    containerComent.setAttribute('id', 'containerComent');
+
     const imgUserCopia2 = imgUserForm.cloneNode(true);
     imgUserCopia2.classList.add('imgUserCopia2');
-    divContainerPostElement.appendChild(imgUserCopia2);
+    containerComent.appendChild(imgUserCopia2);
 
     const coment = document.createElement('input');
     coment.classList.add('coment');
     coment.setAttribute('type', 'text');
     coment.setAttribute('placeholder', 'Deja tu comentario...');
-    divContainerPostElement.appendChild(coment);
+    containerComent.appendChild(coment);
+
+    divContainerPostElement.appendChild(containerComent);
     // Contenedor de iconos
     const divContainerIconPost = document.createElement('div');
     divContainerIconPost.classList.add('containerIconPost');
 
     const iconCarrot = document.createElement('img');
-    iconCarrot.src = '../../icon/carrotNot.png';
+    iconCarrot.src = '../../icon/carrot2.png';
     iconCarrot.alt = 'icono like';
     iconCarrot.classList.add('iconCarrot');
     iconCarrot.setAttribute('id', 'iconCarrot');
@@ -300,18 +322,23 @@ export const wallZone = () => {
     postContainer.appendChild(divContainerPostElement);
   };
 
-  const handleFormSubmit = (event) => {
+  // funcionalidad de publicar
+  const handleFormSubmit = async (event) => {
     event.preventDefault(); // Previene el comportamiento predeterminado del formulario
     const data = new FormData(form);
-    const textareaValue = data.get('textareaEl');
-
-    // console.log('Publicando:', textareaValue);
-
-    savePost(textareaValue);
-    createPost(textareaValue);
+    const content = data.get('textareaEl');
+    if (!content) {
+      return;
+    }
 
     // Restablecer el formulario después de la publicación
     form.reset();
+
+    const user = firebaseUser();
+    const author = user.displayName;
+
+    const postRef = await savePost(content, author);
+    createPost(postRef.id, { content, author });
   };
 
   form.addEventListener('submit', handleFormSubmit);
@@ -320,7 +347,7 @@ export const wallZone = () => {
     // Obtener los datos existentes en ese momento
     const querySnapshot = await getPosts();
     querySnapshot.forEach((post) => {
-      createPost(post.data().savePostInput);
+      createPost(post.id, post.data());
     });
   });
 
@@ -372,6 +399,10 @@ export const footer = () => {
   btnIconAdd.setAttribute('id', 'btnIconAdd');
   btnIconAdd.appendChild(imgIconAdd);
   divContainerMenu.appendChild(btnIconAdd);
+
+  btnIconAdd.addEventListener('click', () => {
+    divContainerWall.classList.toggle('visible');
+  });
 
   /**  **********   ICONO CARROT     ************ */
 
