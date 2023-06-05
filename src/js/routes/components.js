@@ -1,5 +1,7 @@
 // import { async } from 'regenerator-runtime';
-import { firebaseUser, savePost, getPosts } from '../firebase.js';
+import {
+  firebaseUser, savePost, getPosts, editPost,
+} from '../firebase.js';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -40,6 +42,13 @@ export const header = () => {
 export const wallZone = () => {
   const sectionNodo = document.createElement('section');
   sectionNodo.className = 'sectionWall';
+
+  // Seccion de historias
+  const storiesImg = document.createElement('img');
+  storiesImg.className = 'historias';
+  storiesImg.setAttribute('src', '../../image/historias.png');
+  storiesImg.setAttribute('alt', 'imagenes de historias');
+  sectionNodo.append(storiesImg);
 
   // Creación de elementos para el formulario de publicación
   const imgUserForm = document.createElement('img');
@@ -159,8 +168,9 @@ export const wallZone = () => {
     editIcon.classList.add('optionIcon');
 
     const btnEdit = document.createElement('button');
-    btnEdit.classList.add('btnOptionEditDelete');
+    btnEdit.classList.add('btnOptionEdit');
     btnEdit.setAttribute('id', 'btnEdit');
+    btnEdit.setAttribute('data-id', savePost.id);
     btnEdit.textContent = 'Editar';
 
     li1.appendChild(editIcon);
@@ -177,7 +187,7 @@ export const wallZone = () => {
     li2.appendChild(deleteIcon);
 
     const btndelete = document.createElement('button');
-    btndelete.classList.add('btnOptionEditDelete');
+    btndelete.classList.add('btnOptionDelete');
     btndelete.setAttribute('id', 'btnDelete');
     btndelete.textContent = 'Eliminar';
 
@@ -321,6 +331,17 @@ export const wallZone = () => {
     const querySnapshot = await getPosts();
     querySnapshot.forEach((post) => {
       createPost(post.data().savePostInput);
+    });
+
+    const btnsEdit = sectionNodo.querySelectorAll('.btnOptionEdit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        // console.log(e.target.dataset.id);
+        const doc = await editPost(e.target.dataset.id);
+        console.log(doc.data);
+
+        // const post = doc.data();
+      });
     });
   });
 
