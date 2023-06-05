@@ -10,7 +10,7 @@ import {
 } from 'firebase/auth';
 import {
   getFirestore, collection, addDoc, getDocs, doc,
-  deleteDoc,
+  deleteDoc, getDoc,
 } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -54,6 +54,8 @@ export const firebaseGoogle = () => {
 // getTaks
 export const getPosts = () => getDocs(collection(db, 'posts'));
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
+
+export const editPost = (id) => getDoc(db, 'posts', id);
 
 // --------------Logaut----------------------------------------
 // export function signOutUser() {

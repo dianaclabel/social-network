@@ -32,6 +32,16 @@ section{
     width: 60px;
 }
 
+/******************* HISTORIAS   ********************/
+.historias{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 20px 10px 20px;
+    width: 375px;
+    border-bottom: 2px solid var(--color-primary);
+}
+
 /******************* CONTENEDOR PARA PUBLICAR   ********************/
 .container-wall {
     background-color: var(--color-patito);
@@ -225,7 +235,7 @@ section{
     align-items: center;
 }
 
-.btnOptionEditDelete{
+.btnOptionEdit , .btnOptionDelete  {
     font-family: "Julius Sans One", sans-serif;
     font-size: 18px;
     font-weight: 700;
