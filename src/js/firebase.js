@@ -32,7 +32,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 export const savePost = (savePostInput) => {
-  console.log(savePostInput);
+  //console.log(savePostInput);
   addDoc(collection(db, 'posts'), { savePostInput });
 };
 
