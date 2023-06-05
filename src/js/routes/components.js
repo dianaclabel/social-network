@@ -1,6 +1,6 @@
 // import { async } from 'regenerator-runtime';
 import {
-  firebaseUser, savePost, getPosts, deletePost,
+  firebaseUser, savePost, getPosts, deletePost, editPost,
 } from '../firebase.js';
 
 export const header = () => {
@@ -355,17 +355,6 @@ export const wallZone = () => {
     const querySnapshot = await getPosts();
     querySnapshot.forEach((post) => {
       createPost(post.id, post.data());
-    });
-
-    const btnsEdit = sectionNodo.querySelectorAll('.btnOptionEdit');
-    btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        // console.log(e.target.dataset.id);
-        const doc = await editPost(e.target.dataset.id);
-        console.log(doc.data);
-
-        // const post = doc.data();
-      });
     });
 
     const btnsEdit = sectionNodo.querySelectorAll('.btnOptionEdit');
