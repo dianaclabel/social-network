@@ -6,36 +6,36 @@ export const loginTemplate = (navigateTo) => {
   sectionEl.classList.add('section-login');
   sectionEl.innerHTML = /* html */ `
     <header class="header-login">
-         <img  class="logo-register" src="../../image/logo.png" alt="logo">
+          <img  class="logo-register" src="../../image/logo.png" alt="logo">
     </header>
     <main class="main-login">
-         <h1 class="title-greetings">Bienvenidos!</h1>
-         <form action="" class="container-form-login" id="formLogin">
-             <div class="container-form-items-login">
+          <h1 class="title-greetings">Bienvenidos!</h1>
+          <form action="" class="container-form-login" id="formLogin">
+              <div class="container-form-items-login">
               
-                 <label for="" class="form-login">Correo</label>
-                 <input type="email" class="form-inputLogin" name="email" required>
-                 <label for="" class="form-login">Contraseña</label>
-                 <input type="password" class="form-inputLogin" name="password" required>
-                 <p class="forgot">¿Olvidaste tu contraseña?</p>
+                  <label for="" class="form-login">Correo</label>
+                  <input type="email" class="form-inputLogin" name="email" required>
+                  <label for="" class="form-login">Contraseña</label>
+                  <input type="password" class="form-inputLogin" name="password" required>
+                  <p class="forgot">¿Olvidaste tu contraseña?</p>
           
-             </div>
-             <input type="submit" value="Inicio de Sesion" class="btn-login" id="btn-login">
-         </form>
-         <div class="container-or">
-             <div class="linea"></div>
-             <p class="or" >o</p>
-             <div class="linea"></div>
-         </div>
+              </div>
+              <input type="submit" value="Inicio de Sesion" class="btn-login" id="btn-login">
+          </form>
+          <div class="container-or">
+              <div class="linea"></div>
+              <p class="or" >o</p>
+              <div class="linea"></div>
+          </div>
       
-         <button class="btn-login-google" id='btn-login-google'>
+          <button class="btn-login-google" id='btn-login-google'>
             <div class="container-logo">
               <img src="../../image/icon-google.png" alt="logo-google" class="logo-google">
-           </div>
+            </div>
           
           <p >Inicio Sesion con Google</p>
             
-         </button>
+          </button>
 
         <p class="question-register">¿No tienes una cuenta?<a href="/register" class="question-login" id="register-link">Registrarte</a></p>
         
