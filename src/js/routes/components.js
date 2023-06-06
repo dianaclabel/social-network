@@ -139,8 +139,10 @@ export const wallZone = () => {
     containerImgAndUser.classList.add('imgAndUser');
     containerImgAndUser.setAttribute('id', 'imgAndUser');
 
-    // const imgUserCopia = imgUserForm.cloneNode(true);
-    // imgUserCopia.classList.add('imgUserCopia');
+    const imgUserCopia = document.createElement('img');
+    imgUserCopia.classList.add('imgUserCopia');
+    imgUserCopia.setAttribute('src', '../../image/fotoUsuario.png');
+    containerImgAndUser.appendChild(imgUserCopia);
 
     // nombre del usuario
     const nameUser = document.createElement('h2');
@@ -334,9 +336,9 @@ export const wallZone = () => {
     containerComent.classList.add('containerComent');
     containerComent.setAttribute('id', 'containerComent');
 
-    // const imgUserCopia2 = imgUserForm.cloneNode(true);
-    // imgUserCopia2.classList.add('imgUserCopia2');
-    // containerComent.appendChild(imgUserCopia2);
+    const imgUserCopia2 = imgUserCopia.cloneNode(true);
+    imgUserCopia2.classList.add('imgUserCopia2');
+    containerComent.appendChild(imgUserCopia2);
 
     const coment = document.createElement('input');
     coment.classList.add('coment');
@@ -463,7 +465,6 @@ export const footer = () => {
   footerNodo.append(shareEditBox);
 
   btnIconAdd.addEventListener('click', () => {
-    // const containerWall = shareEditBox.querySelector('.container-wall');
     shareEditBox.classList.toggle('visible');
   });
 

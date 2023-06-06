@@ -43,28 +43,37 @@ section{
 }
 
 /******************* CONTENEDOR PARA PUBLICAR   ********************/
+#container-wall{
+    padding: 20px;
+    margin-top: 13%;
+    position: fixed;
+    z-index: 10;
+    top: 50%; 
+}
+
 .container-wall {
     background-color: var(--color-patito);
     border: 1px solid #FE9801;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 20px;
-    margin-top: 10px;
+    margin-top: 10px; 
     font-family: "Julius Sans One", sans-serif;
     display: none;
-    position: fixed;
+    /* position: fixed;
     z-index: 10;
-    top: 50%;
+    top: 50%; */
     transform: translateY(-50%);
 }
 
 .container-wall.visible{
     display: block;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+
 
 .closePopupPublish{
     position: absolute;
-    /* margin-top: -4%;
-    margin-left: 88.50%; */
     top: 4px;
     right: 4px;
     width: 25.5px;
@@ -276,12 +285,10 @@ section{
 }
 
 .coment{
-    /* margin: 10px; */
     padding: 10px;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     width: 95%;
-    /* height: 30px; */
     border: none;
 }
 
