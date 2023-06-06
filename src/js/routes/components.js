@@ -39,18 +39,8 @@ export const header = () => {
 };
 
 /** **************** ZONA DE MURO DE PUBLICACIONES**************** */
-const divContainerWall = document.createElement('div');
-
-export const wallZone = () => {
-  const sectionNodo = document.createElement('section');
-  sectionNodo.className = 'sectionWall';
-
-  // Seccion de historias
-  const storiesImg = document.createElement('img');
-  storiesImg.className = 'historias';
-  storiesImg.setAttribute('src', '../../image/historias.png');
-  storiesImg.setAttribute('alt', 'imagenes de historias');
-  sectionNodo.append(storiesImg);
+const createShareEdit = () => {
+  const divContainerWall = document.createElement('div');
 
   const closePopupPublish = document.createElement('img');
   closePopupPublish.className = 'closePopupPublish';
@@ -64,7 +54,6 @@ export const wallZone = () => {
   imgUserForm.setAttribute('alt', 'imagen-usuario');
 
   const newPostText = document.createElement('textarea');
-  // newPostText.setAttribute('required', true);
   newPostText.classList.add('containerCreatePost');
   newPostText.setAttribute('id', 'inputCreatePost');
   newPostText.setAttribute('name', 'textareaEl');
@@ -112,14 +101,35 @@ export const wallZone = () => {
   divContainerWall.setAttribute('id', 'container-wall');
   divContainerWall.appendChild(closePopupPublish);
   divContainerWall.appendChild(form);
-  sectionNodo.appendChild(divContainerWall);
 
-  // Contenedor para las publicaciones
+  return divContainerWall;
+};
+
+let createPost;
+
+export const wallZone = () => {
+  const sectionNodo = document.createElement('section');
+  sectionNodo.className = 'sectionWall';
+
+  // Seccion de historias
+  const storiesImg = document.createElement('img');
+  storiesImg.className = 'historias';
+  storiesImg.setAttribute('src', '../../image/historias.png');
+  storiesImg.setAttribute('alt', 'imagenes de historias');
+  sectionNodo.append(storiesImg);
+
+  // createShareEdit();
+
+  const shareEditBox = createShareEdit();
+
+  sectionNodo.append(shareEditBox);
+
+  // Contenedor para las publicaciones DIV VACIO
   const postContainer = document.createElement('div');
   postContainer.setAttribute('id', 'post-container');
   sectionNodo.appendChild(postContainer);
 
-  const createPost = (postId, postData) => {
+  createPost = (postId, postData) => {
     // Contenedor de cada publicación
     const postElement = document.createElement('div');
     postElement.textContent = postData.content;
@@ -131,8 +141,8 @@ export const wallZone = () => {
     containerImgAndUser.classList.add('imgAndUser');
     containerImgAndUser.setAttribute('id', 'imgAndUser');
 
-    const imgUserCopia = imgUserForm.cloneNode(true);
-    imgUserCopia.classList.add('imgUserCopia');
+    // const imgUserCopia = imgUserForm.cloneNode(true);
+    // imgUserCopia.classList.add('imgUserCopia');
 
     // nombre del usuario
     const nameUser = document.createElement('h2');
@@ -140,7 +150,7 @@ export const wallZone = () => {
     nameUser.setAttribute('id', 'nameUser');
     nameUser.textContent = postData.author;
 
-    containerImgAndUser.appendChild(imgUserCopia);
+    // containerImgAndUser.appendChild(imgUserCopia);
     containerImgAndUser.appendChild(nameUser);
 
     // Botón de opciones de editar y eliminar
@@ -294,9 +304,9 @@ export const wallZone = () => {
     containerComent.classList.add('containerComent');
     containerComent.setAttribute('id', 'containerComent');
 
-    const imgUserCopia2 = imgUserForm.cloneNode(true);
-    imgUserCopia2.classList.add('imgUserCopia2');
-    containerComent.appendChild(imgUserCopia2);
+    // const imgUserCopia2 = imgUserForm.cloneNode(true);
+    // imgUserCopia2.classList.add('imgUserCopia2');
+    // containerComent.appendChild(imgUserCopia2);
 
     const coment = document.createElement('input');
     coment.classList.add('coment');
@@ -336,26 +346,6 @@ export const wallZone = () => {
     postContainer.appendChild(divContainerPostElement);
   };
 
-  // funcionalidad de publicar
-  const handleFormSubmit = async (event) => {
-    event.preventDefault(); // Previene el comportamiento predeterminado del formulario
-    const data = new FormData(form);
-    const content = data.get('textareaEl');
-    if (!content) {
-      return;
-    }
-
-    // Restablecer el formulario después de la publicación
-    form.reset();
-
-    const user = firebaseUser();
-    const author = user.displayName;
-
-    const postRef = await savePost(content, author);
-    createPost(postRef.id, { content, author });
-  };
-  form.addEventListener('submit', handleFormSubmit);
-
   window.addEventListener('DOMContentLoaded', async () => {
     // Obtener los datos existentes en ese momento
     const querySnapshot = await getPosts();
@@ -363,16 +353,28 @@ export const wallZone = () => {
       createPost(post.id, post.data());
     });
 
-    const btnsEdit = sectionNodo.querySelectorAll('.btnOptionEdit');
-    btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        // console.log(e.target.dataset.id);
-        const doc = await editPost(e.target.dataset.id);
-        console.log(doc.data);
+    const editPost = (id, updatedContent) => {
+      const postRef = doc(db, 'posts', id);
+    
+      return updateDoc(postRef, { content: updatedContent })
+        .then(() => {
+          console.log('Document updated successfully!');
+        })
+        .catch((error) => {
+          console.error('Error updating document:', error);
+        });
+    };
 
-        // const post = doc.data();
-      });
-    });
+    // const btnsEdit = sectionNodo.querySelectorAll('.btnOptionEdit');
+    // btnsEdit.forEach((btn) => {
+    //   btn.addEventListener('click', async (e) => {
+    //     console.log(e.target.dataset.id);
+    //     const doc = await editPost(e.target.dataset.id);
+    //     console.log(doc.data);
+
+    //     // const post = doc.data();
+    //   });
+    // });
   });
 
   return sectionNodo;
@@ -424,12 +426,38 @@ export const footer = () => {
   btnIconAdd.appendChild(imgIconAdd);
   divContainerMenu.appendChild(btnIconAdd);
 
+  const shareEditBox = createShareEdit();
+  // funcionalidad de publicar
+  const formShare = shareEditBox.querySelector('#form-post');
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault(); // Previene el comportamiento predeterminado del formulario
+
+    const data = new FormData(formShare);
+    const content = data.get('textareaEl');
+    if (!content) {
+      return;
+    }
+
+    // Restablecer el formulario después de la publicación
+    formShare.reset();
+
+    const user = firebaseUser();
+    const author = user.displayName;
+
+    const postRef = await savePost(content, author);
+
+    createPost(postRef.id, { content, author });
+  };
+  formShare.addEventListener('submit', handleFormSubmit);
+  footerNodo.append(shareEditBox);
+
   btnIconAdd.addEventListener('click', () => {
-    divContainerWall.classList.toggle('visible');
+    // const containerWall = shareEditBox.querySelector('.container-wall');
+    shareEditBox.classList.toggle('visible');
   });
 
   /**  **********   ICONO CARROT     ************ */
-
   const imgIconLikes = document.createElement('img');
   imgIconLikes.src = '../../icon/carrot.png';
   imgIconLikes.alt = 'icon-Likes';
