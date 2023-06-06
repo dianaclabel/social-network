@@ -63,8 +63,10 @@ section{
 
 .closePopupPublish{
     position: absolute;
-    margin-top: -4%;
-    margin-left: 88.50%;
+    /* margin-top: -4%;
+    margin-left: 88.50%; */
+    top: 4px;
+    right: 4px;
     width: 25.5px;
 }
 

@@ -46,7 +46,9 @@ const createShareEdit = () => {
   closePopupPublish.className = 'closePopupPublish';
   closePopupPublish.setAttribute('src', '../../icon/cancel.png');
   closePopupPublish.setAttribute('alt', 'Icono para cerrar Popup');
-
+  closePopupPublish.addEventListener('click', () => {
+    divContainerWall.classList.remove('visible');
+  });
   // Creación de elementos para el formulario de publicación
   const imgUserForm = document.createElement('img');
   imgUserForm.classList.add('imgUser');
@@ -120,10 +122,6 @@ export const wallZone = () => {
 
   // createShareEdit();
 
-  const shareEditBox = createShareEdit();
-
-  sectionNodo.append(shareEditBox);
-
   // Contenedor para las publicaciones DIV VACIO
   const postContainer = document.createElement('div');
   postContainer.setAttribute('id', 'post-container');
@@ -186,11 +184,43 @@ export const wallZone = () => {
     const btnEdit = document.createElement('button');
     btnEdit.classList.add('btnOptionEdit');
     btnEdit.setAttribute('id', 'btnEdit');
-    btnEdit.setAttribute('data-id', savePost.id);
+    btnEdit.setAttribute('data-id', postId);
     btnEdit.textContent = 'Editar';
+
+    const shareEditBox = createShareEdit();
+
+    const textarea = shareEditBox.querySelector('.containerCreatePost');
+    textarea.value = postData.content;
+
+    const formShare = shareEditBox.querySelector('#form-post');
+
+    const handleFormSubmit = async (event) => {
+      event.preventDefault(); // Previene el comportamiento predeterminado del formulario
+
+      const data = new FormData(formShare);
+      const content = data.get('textareaEl'); // nuevo contenido
+      if (!content) {
+        return;
+      }
+
+      // 1. Actualizar post en firebase
+      // ... await updatePost(postId, content)
+
+      // 2. Actualizar nodo en el wall
+      postElement.textContent = content;
+
+      // 3. Cerrar el box
+      shareEditBox.classList.remove('visible');
+    };
+    formShare.addEventListener('submit', handleFormSubmit);
+
+    btnEdit.addEventListener('click', () => {
+      shareEditBox.classList.add('visible');
+    });
 
     li1.appendChild(editIcon);
     li1.appendChild(btnEdit);
+    li1.appendChild(shareEditBox);
 
     // Opción de eliminar
     const li2 = document.createElement('li');
@@ -346,36 +376,15 @@ export const wallZone = () => {
     postContainer.appendChild(divContainerPostElement);
   };
 
-  window.addEventListener('DOMContentLoaded', async () => {
+  const loadPost = async () => {
     // Obtener los datos existentes en ese momento
     const querySnapshot = await getPosts();
     querySnapshot.forEach((post) => {
       createPost(post.id, post.data());
     });
+  };
 
-    const editPost = (id, updatedContent) => {
-      const postRef = doc(db, 'posts', id);
-    
-      return updateDoc(postRef, { content: updatedContent })
-        .then(() => {
-          console.log('Document updated successfully!');
-        })
-        .catch((error) => {
-          console.error('Error updating document:', error);
-        });
-    };
-
-    // const btnsEdit = sectionNodo.querySelectorAll('.btnOptionEdit');
-    // btnsEdit.forEach((btn) => {
-    //   btn.addEventListener('click', async (e) => {
-    //     console.log(e.target.dataset.id);
-    //     const doc = await editPost(e.target.dataset.id);
-    //     console.log(doc.data);
-
-    //     // const post = doc.data();
-    //   });
-    // });
-  });
+  loadPost();
 
   return sectionNodo;
 };
@@ -450,6 +459,7 @@ export const footer = () => {
     createPost(postRef.id, { content, author });
   };
   formShare.addEventListener('submit', handleFormSubmit);
+
   footerNodo.append(shareEditBox);
 
   btnIconAdd.addEventListener('click', () => {
