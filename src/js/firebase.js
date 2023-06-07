@@ -8,10 +8,11 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+
 } from 'firebase/auth';
 import {
   getFirestore, collection, addDoc, getDocs, doc,
-  deleteDoc, updateDoc,
+  deleteDoc, updateDoc, arrayUnion, arrayRemove,
 } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -59,8 +60,17 @@ export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 export const editPost = (id) => updateDoc(doc(db, 'posts', id));
 // --------------Logaut----------------------------------------
 export const signOutUser = () => signOut(auth);
-// .then(() => {
-//   console.log('El usuario a cerrado sesión');
-// }).catch((error) => {
-//   console.log(error.message);
-// });
+
+export const addLike = (postId, username) => {
+  const docRef = doc(db, 'posts', postId);
+  return updateDoc(docRef, {
+    likes: arrayUnion(username),
+  });
+};
+
+export const removeLike = (postId, username) => {
+  const docRef = doc(db, 'posts', postId);
+  return updateDoc(docRef, {
+    likes: arrayRemove(username),
+  });
+};
