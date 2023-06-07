@@ -8,7 +8,7 @@
 .header-login {
   width: 100%;
   text-align: center;
-  padding-top: 2.3rem;
+  padding-top:90px;
 }
 .logo-register {
   width: 65%;
@@ -56,6 +56,7 @@
   height: 35px;
   width: 100%;
   margin-bottom: 5%;
+  padding: 10px;
 }
 .forgot {
   font-family: "Julius Sans One", sans-serif;
