@@ -16,7 +16,7 @@ export const verification = (navigateTo) => {
                  </svg>
         </div>
         </div>  
-         <a class="btnStarted" id="btn-started" href="/feed">Comencemos</a>
+         <a class="btnStarted" id="btn-started" href="/bienvenida">Comencemos</a>
      </main>
     `;
   const btnStarted = sectionEl.querySelector('#btn-started');

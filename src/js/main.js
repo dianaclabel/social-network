@@ -23,7 +23,7 @@ export const routes = [
     render: verification,
   },
   {
-    path: '/Bienvenida',
+    path: '/bienvenida',
     render: wellcome,
   },
 ];

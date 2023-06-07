@@ -1,4 +1,4 @@
-export const wellcome = () => {
+export const wellcome = (navigateTo) => {
   const sectionEl = document.createElement('section');
   sectionEl.classList.add('section-wellcome');
   sectionEl.innerHTML = /* html */ `
@@ -22,5 +22,11 @@ export const wellcome = () => {
 
     </main>
     `;
+
+  const btnPresents = sectionEl.querySelector('.btnVamos');
+  btnPresents.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('/feed');
+  });
   return sectionEl;
 };
