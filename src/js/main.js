@@ -2,6 +2,7 @@ import { loginTemplate } from './routes/login.js';
 import { registerTemplate } from './routes/register.js';
 import { verification } from './routes/verification.js';
 import { errorNotFound } from './routes/notFound.js';
+import { wellcome } from './routes/bienvenida.js';
 import { feed } from './routes/feed.js';
 
 export const routes = [
@@ -20,6 +21,10 @@ export const routes = [
   {
     path: '/verification',
     render: verification,
+  },
+  {
+    path: '/Bienvenida',
+    render: wellcome,
   },
 ];
 
