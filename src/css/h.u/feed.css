@@ -281,7 +281,7 @@ section{
 
 .containerIconPost{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -293,6 +293,10 @@ section{
     width: 24px;
 }
 
+.btnCarrot{
+    background: transparent;
+    border: none;
+}
 .iconPost{
     width: 29px;
 }
@@ -373,10 +377,18 @@ section{
 .linksIcons{
     margin: 5px;
 }
-
+#btnLogOut{
+background: transparent;
+border: none;
+}
 #btnIconAdd{
     background: transparent;
     border: none;
+}
+
+#iconLikes{
+width: 48px;
+margin-left: 9px;
 }
 
 .iconFooter{

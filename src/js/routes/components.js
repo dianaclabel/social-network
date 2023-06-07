@@ -440,7 +440,7 @@ export const footer = (navigateTo) => {
   const divContainerMenu = document.createElement('div');
   divContainerMenu.className = 'container-menu';
 
-  /**  **********   ICONO DE HOME      ************ */
+  /** ICONO DE HOME   */
   const imgIconHome = document.createElement('img');
   imgIconHome.src = '../../icon/homepage.png';
   imgIconHome.className = 'iconFooter';
@@ -453,7 +453,7 @@ export const footer = (navigateTo) => {
   aIconHome.appendChild(imgIconHome);
   divContainerMenu.appendChild(aIconHome);
 
-  /**  **********   ICONO DE SEARCH    ************ */
+  /** ICONO DE SEARCH  */
   const imgIconSearch = document.createElement('img');
   imgIconSearch.src = '../../icon/Search.png';
   imgIconSearch.alt = 'icon-search';
@@ -480,7 +480,8 @@ export const footer = (navigateTo) => {
   divContainerMenu.appendChild(btnIconAdd);
 
   const shareEditBox = createShareEdit();
-  // funcionalidad de publicar
+
+  // *************** FUNCION PARA PUBLICAR ********************
   const formShare = shareEditBox.querySelector('#form-post');
 
   const handleFormSubmit = async (event) => {
@@ -534,6 +535,7 @@ export const footer = (navigateTo) => {
   divContainerMenu.appendChild(imgIconLogout);
   const btnIconLogout = document.createElement('button');
   btnIconLogout.classList.add('linksIcons');
+  btnIconLogout.setAttribute('id', 'btnLogOut');
   btnIconLogout.appendChild(imgIconLogout);
   divContainerMenu.appendChild(btnIconLogout);
   btnIconLogout.addEventListener('click', () => {
