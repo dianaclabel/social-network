@@ -40,14 +40,21 @@ export const header = () => {
 
 /** **************** ZONA DE MURO DE PUBLICACIONES**************** */
 const createShareEdit = () => {
-  const divContainerWall = document.createElement('div');
+  const divContainerWall = document.createElement('dialog');
+
+  // Cerrar al hacer click el en dialog (incluído el backdrop) pero no el contenido
+  // divContainerWall.addEventListener('click', (event) => {
+  //   if (event.target === divContainerWall) {
+  //     divContainerWall.close();
+  //   }
+  // });
 
   const closePopupPublish = document.createElement('img');
   closePopupPublish.className = 'closePopupPublish';
   closePopupPublish.setAttribute('src', '../../icon/cancel.png');
   closePopupPublish.setAttribute('alt', 'Icono para cerrar Popup');
   closePopupPublish.addEventListener('click', () => {
-    divContainerWall.classList.remove('visible');
+    divContainerWall.close();
   });
   // Creación de elementos para el formulario de publicación
   const imgUserForm = document.createElement('img');
@@ -100,7 +107,6 @@ const createShareEdit = () => {
 
   // Contenedor de publicación
   divContainerWall.classList.add('container-wall');
-  divContainerWall.setAttribute('id', 'container-wall');
   divContainerWall.appendChild(closePopupPublish);
   divContainerWall.appendChild(form);
 
@@ -132,7 +138,6 @@ export const wallZone = () => {
     const postElement = document.createElement('div');
     postElement.textContent = postData.content;
     postElement.classList.add('postElement');
-    postContainer.appendChild(postElement);
 
     // Contenedor de imagen de usuario y nombre de usuario
     const containerImgAndUser = document.createElement('div');
@@ -212,17 +217,17 @@ export const wallZone = () => {
       postElement.textContent = content;
 
       // 3. Cerrar el box
-      shareEditBox.classList.remove('visible');
+      shareEditBox.close();
     };
     formShare.addEventListener('submit', handleFormSubmit);
 
     btnEdit.addEventListener('click', () => {
-      shareEditBox.classList.add('visible');
+      modalPopupOption.style.display = 'none';
+      shareEditBox.showModal();
     });
 
     li1.appendChild(editIcon);
     li1.appendChild(btnEdit);
-    li1.appendChild(shareEditBox);
 
     // Opción de eliminar
     const li2 = document.createElement('li');
@@ -260,6 +265,7 @@ export const wallZone = () => {
     divContainerPostElement.appendChild(btnIconOption);
     divContainerPostElement.appendChild(modalPopupOption);
     divContainerPostElement.appendChild(postElement);
+    divContainerPostElement.appendChild(shareEditBox);
 
     // Funciones del modal
     btnIconOption.addEventListener('click', () => {
@@ -375,7 +381,7 @@ export const wallZone = () => {
     divContainerPostElement.appendChild(divContainerIconPost);
 
     // Agrega la publicación al contenedor de publicaciones
-    postContainer.appendChild(divContainerPostElement);
+    postContainer.prepend(divContainerPostElement);
   };
 
   const loadPost = async () => {
@@ -459,13 +465,15 @@ export const footer = () => {
     const postRef = await savePost(content, author);
 
     createPost(postRef.id, { content, author });
+
+    shareEditBox.close();
   };
   formShare.addEventListener('submit', handleFormSubmit);
 
   footerNodo.append(shareEditBox);
 
   btnIconAdd.addEventListener('click', () => {
-    shareEditBox.classList.toggle('visible');
+    shareEditBox.showModal();
   });
 
   /**  **********   ICONO CARROT     ************ */

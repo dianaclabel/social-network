@@ -40,14 +40,6 @@ section{
 }
 
 /******************* CONTENEDOR PARA PUBLICAR   ********************/
-#container-wall{
-    padding: 20px;
-    margin-top: 13%;
-    position: fixed;
-    z-index: 10;
-    top: 50%; 
-}
-
 .container-wall {
     background-color: var(--color-patito);
     border: 1px solid #FE9801;
@@ -55,17 +47,14 @@ section{
     padding: 20px;
     margin-top: 10px; 
     font-family: "Julius Sans One", sans-serif;
-    display: none;
-    /* position: fixed;
-    z-index: 10;
-    top: 50%; */
-    transform: translateY(-50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.container-wall.visible{
-    display: block;
-    /* margin-top: 33px;
-    right: -11px; */
+.container-wall::backdrop {
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 
@@ -134,13 +123,13 @@ section{
     padding: 10px;
     font-family: "Julius Sans One", sans-serif;
     font-weight: 800;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
 /******************* DIV CONTENEDOR DE PUBLICACIONES    ********************/
 #post-container{
-    margin: 1rem;
+    padding: 1rem 1.5rem;
     *padding: 1rem;
     *background-color: blueviolet;
 }
@@ -149,9 +138,10 @@ section{
     grid-template-columns: auto auto auto;
     grid-template-rows: auto 1fr auto;
     background-color: var(--color-third-verdeazul);
-    padding: 15px;
-    margin: 1rem;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .nameUser{
@@ -214,7 +204,7 @@ section{
     font-family: "Julius Sans One", sans-serif;
     display: none;
     background-color: var(--color-patito);
-    position: fixed;
+    position: absolute;
     width: 230px;
     height: 150px;
     border: 2px solid var(--color-primary);
@@ -224,7 +214,7 @@ section{
     top: 22%;
     margin-top: -50px;
     list-style-type: none;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -347,7 +337,7 @@ section{
     margin: 5px;
     border: 1px solid var(--color-primary);
     border-radius: 5px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btnNotSure{
