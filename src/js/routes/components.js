@@ -1,6 +1,6 @@
 // import { async } from 'regenerator-runtime';
 import {
-  firebaseUser, savePost, getPosts, deletePost, editPost,
+  firebaseUser, savePost, getPosts, deletePost, signOutUser,
 } from '../firebase.js';
 
 export const header = () => {
@@ -397,7 +397,7 @@ export const wallZone = () => {
   return sectionNodo;
 };
 
-export const footer = () => {
+export const footer = (navigateTo) => {
   const footerNodo = document.createElement('footer');
   footerNodo.className = 'footerHome';
 
@@ -496,11 +496,20 @@ export const footer = () => {
   imgIconLogout.className = 'iconFooter';
   imgIconLogout.id = 'logout';
   divContainerMenu.appendChild(imgIconLogout);
-  const aIconLogout = document.createElement('a');
-  aIconLogout.classList.add('linksIcons');
-  aIconLogout.setAttribute('href', '/');
-  aIconLogout.appendChild(imgIconLogout);
-  divContainerMenu.appendChild(aIconLogout);
+  const btnIconLogout = document.createElement('button');
+  btnIconLogout.classList.add('linksIcons');
+  btnIconLogout.appendChild(imgIconLogout);
+  divContainerMenu.appendChild(btnIconLogout);
+  btnIconLogout.addEventListener('click', () => {
+    signOutUser()
+      .then(() => {
+        console.log('El usuario a cerrado sesión');
+        navigateTo('/');
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  });
 
   footerNodo.appendChild(divContainerMenu);
 

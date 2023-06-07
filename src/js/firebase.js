@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
 } from 'firebase/auth';
 import {
   getFirestore, collection, addDoc, getDocs, doc,
@@ -57,11 +58,9 @@ export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
 export const editPost = (id) => updateDoc(doc(db, 'posts', id));
 // --------------Logaut----------------------------------------
-// export function signOutUser() {
-//   return signOut(auth)
-//     .then(() => {
-//       console.log('El usuario a cerrado sesión');
-//     }).catch((error) => {
-//       console.log(error.message);
-//     });
-// }
+export const signOutUser = () => signOut(auth);
+// .then(() => {
+//   console.log('El usuario a cerrado sesión');
+// }).catch((error) => {
+//   console.log(error.message);
+// });
