@@ -44,13 +44,16 @@ Se realizaron los test de usabilidad en el cual nos sugirieron realizar algunos 
 
 ![paleta de colores](https://github.com/fa12ti09/social-network/assets/127429394/65ea4767-da88-49f2-b9b0-45de4aba8fe0)
 
-### 2.5 Diseño de Logotipo
+### 2.5 Diseños de Logotipo
 
-![logotipo](https://github.com/fa12ti09/social-network/assets/127429394/777de6ef-a139-413e-b86d-af59c7638efd)
+![prototipo de LOGOS](https://github.com/fa12ti09/social-network/assets/127429394/1745c346-741d-4327-98da-77ec16485b4c)
 
-### 2.6 Eleccion de Nombre de la app 
+
+### 2.6 Eleccion de Nombre de la app
 
 ![nombre de logo](https://github.com/fa12ti09/social-network/assets/127429394/6fc323b3-e1ef-421c-a81b-8071a431acb6)
+
+![logotipo](https://github.com/fa12ti09/social-network/assets/127429394/777de6ef-a139-413e-b86d-af59c7638efd)
 
 
 
@@ -85,11 +88,12 @@ Cuando los usuarios desean realizar cambios en una publicación que han realizad
 
 ![trello](https://github.com/fa12ti09/social-network/assets/127429394/f5b4eee5-b06c-40ec-a9ca-dd9611e98511)
 ***
-## Resultado Final 
-
-
-
-
-
-
-
+## 5. 🌟 Resultado Final 
+![Registrarse](https://github.com/fa12ti09/social-network/assets/127429394/5ff210f1-5ebe-47a5-86a3-3d1cb049ba21)
+![Login](https://github.com/fa12ti09/social-network/assets/127429394/0e03c900-f51c-4d03-a6f3-24bc87fae172)
+![Comencemos](https://github.com/fa12ti09/social-network/assets/127429394/a3162c0c-ff20-409a-b498-059f74e7d2ac)
+![despues de registrarte la bienvenida](https://github.com/fa12ti09/social-network/assets/127429394/0857725a-960e-4b06-8332-047161d80bff)
+![Muro de publicaciones](https://github.com/fa12ti09/social-network/assets/127429394/f0cda45f-4439-4d02-a1ef-8fb390bd6cf1)
+![Publicar algo](https://github.com/fa12ti09/social-network/assets/127429394/c6d1ac82-c164-4073-a138-a4fd178f0fdf)
+![Zona de Editar y Eliminar](https://github.com/fa12ti09/social-network/assets/127429394/1fdd0205-3429-4061-825b-9505c0fa5ab8)
+![Eliminar o no](https://github.com/fa12ti09/social-network/assets/127429394/0cba9546-2469-430e-8349-943888f385be)
