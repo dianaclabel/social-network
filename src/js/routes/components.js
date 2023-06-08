@@ -1,6 +1,6 @@
 // import { async } from 'regenerator-runtime';
 import {
-  firebaseUser, savePost, getPosts, deletePost, signOutUser, addLike, removeLike,
+  firebaseUser, savePost, getPosts, deletePost, signOutUser, addLike, removeLike, editPost
 } from '../firebase.js';
 
 export const header = () => {
@@ -211,7 +211,7 @@ export const wallZone = () => {
       }
 
       // 1. Actualizar post en firebase
-      // ... await updatePost(postId, content)
+      editPost(postId, content);
 
       // 2. Actualizar nodo en el wall
       postElement.textContent = content;

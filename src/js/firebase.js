@@ -57,7 +57,10 @@ export const firebaseGoogle = () => {
 export const getPosts = () => getDocs(collection(db, 'posts'));
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
-export const editPost = (id) => updateDoc(doc(db, 'posts', id));
+export const editPost = (postId, content) => {
+  const docRef = doc(db, 'posts', postId);
+  return updateDoc(docRef, { content });
+};
 // --------------Logaut----------------------------------------
 export const signOutUser = () => signOut(auth);
 
