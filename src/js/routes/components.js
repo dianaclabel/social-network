@@ -1,6 +1,6 @@
 // import { async } from 'regenerator-runtime';
 import {
-  firebaseUser, savePost, getPosts, deletePost, signOutUser, addLike, removeLike, editPost
+  firebaseUser, savePost, getPosts, deletePost, signOutUser, addLike, removeLike, editPost,
 } from '../firebase.js';
 
 export const header = () => {
@@ -371,34 +371,31 @@ export const wallZone = () => {
     // Función para setear la imagen correcta
     const setBtnImage = () => {
       if (postData.likes?.includes(user.displayName)) {
-        //carrot white
-        iconCarrot.src ='../../icon/carrot.png';
+        // carrot white
+        iconCarrot.src = '../../icon/carrot.png';
       } else {
-        //carrot orange
-        iconCarrot.src = '../../icon/carrot2.png'
+        // carrot orange
+        iconCarrot.src = '../../icon/carrot2.png';
       }
-    }
+    };
 
     // Imagen inicial del botón
-    setBtnImage(); 
+    setBtnImage();
 
     // Evento del botón para actualizar en firestore y la imagen
-  
-    btnCarrot.addEventListener("click", async () => {
-    if (postData.likes?.includes(user.displayName)) {
-      removeLike(postId, user.displayName);
-      //Actualizar y quedarme con todos los user excepto el user que se elimina
-      postData.likes = postData.likes.filter(name => name !== user.displayName);
-    } else {
-      addLike(postId, user.displayName);
-      postData.likes = postData.likes || [];
-      postData.likes.push(user.displayName);
 
-    }
-    setBtnImage();
-    })
-
-
+    btnCarrot.addEventListener('click', async () => {
+      if (postData.likes?.includes(user.displayName)) {
+        removeLike(postId, user.displayName);
+        // Actualizar y quedarme con todos los user excepto el user que se elimina
+        postData.likes = postData.likes.filter((name) => name !== user.displayName);
+      } else {
+        addLike(postId, user.displayName);
+        postData.likes = postData.likes || [];
+        postData.likes.push(user.displayName);
+      }
+      setBtnImage();
+    });
 
     const iconComment = document.createElement('img');
     iconComment.src = '../../icon/Comments.png';

@@ -1,4 +1,4 @@
-export const wellcome = (navigateTo) => {
+export const welcome = (navigateTo) => {
   const sectionEl = document.createElement('section');
   sectionEl.classList.add('section-wellcome');
   sectionEl.innerHTML = /* html */ `
