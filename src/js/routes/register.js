@@ -1,12 +1,14 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import { firebaseRegister, firebaseGoogle } from '../firebase';
+import logo from '../../public/image/logo.png';
+import google from '../../public/image/icon-google.png';
 
 export const registerTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
   sectionEl.classList.add('section-register');
   sectionEl.innerHTML = /* html */ `
     <header class="header-register">
-        <img  class="logo-register" src="../../image/logo.png" alt="logo">
+        <img  class="logo-register" src="${logo}" alt="logo">
     </header>
     <main>
         <h1 class="title-greetings">Hola!</h1>
@@ -32,7 +34,7 @@ export const registerTemplate = (navigateTo) => {
     
         <button class="btn-register-google" id="btn-registerGoogle">
             <div class="container-logo">
-                <img src="../../image/icon-google.png" alt="logo-google" class="logo-google">
+                <img src="${google}" alt="logo-google" class="logo-google">
             </div>
         
             <p >Registrarse con google</p>

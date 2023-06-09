@@ -1,5 +1,5 @@
-.section-login {
-  background: url(../../image/fondo-principal-grande.jpg);
+.section-register {
+  background: url(../../public/image/fondo-principal-grande.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;

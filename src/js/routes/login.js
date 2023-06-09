@@ -1,6 +1,8 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import { firebaseLogin, firebaseGoogle } from '../firebase';
 import logo from '../../public/image/logo.png';
+import google from '../../public/image/icon-google.png';
+
 
 export const loginTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
@@ -31,7 +33,7 @@ export const loginTemplate = (navigateTo) => {
       
           <button class="btn-login-google" id='btn-login-google'>
             <div class="container-logo">
-              <img src="../../image/icon-google.png" alt="logo-google" class="logo-google">
+              <img src="${google}" alt="logo-google" class="logo-google">
             </div>
           
           <p >Inicio Sesion con Google</p>
