@@ -1,12 +1,13 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import { firebaseLogin, firebaseGoogle } from '../firebase';
+import logo from '../../public/image/logo.png';
 
 export const loginTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
   sectionEl.classList.add('section-login');
   sectionEl.innerHTML = /* html */ `
     <header class="header-login">
-          <img  class="logo-register" src="../../image/logo.png" alt="logo">
+          <img  class="logo-register" src="${logo}" alt="logo">
     </header>
     <main class="main-login">
           <h1 class="title-greetings">Bienvenidos!</h1>
