@@ -3,7 +3,6 @@ import { firebaseLogin, firebaseGoogle } from '../firebase';
 import logo from '../../public/image/logo.png';
 import google from '../../public/image/icon-google.png';
 
-
 export const loginTemplate = (navigateTo) => {
   const sectionEl = document.createElement('section');
   sectionEl.classList.add('section-login');

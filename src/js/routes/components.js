@@ -2,6 +2,17 @@
 import {
   firebaseUser, savePost, getPosts, deletePost, signOutUser, addLike, removeLike, editPost,
 } from '../firebase.js';
+// imports de header y historias
+import logo from '../../public/image/logo.png';
+import bell from '../../public/icon/bell.png';
+import fotoUsuario from '../../public/image/usuarioCarrot.png';
+import historias from '../../public/image/historias.png';
+// imports de img para publicar
+import imgUser from '../../public/image/fotoUsuario.png';
+import cancel from '../../public/icon/cancel.png';
+import photo from '../../public/icon/sharePhoto.png';
+import map from '../../public/icon/shareMap.png';
+import video from '../../public/icon/shareVideo.png';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -18,15 +29,15 @@ export const header = () => {
   headerNodo.className = 'headerPrincipal';
 
   imgLogo.className = 'headerLogo';
-  imgLogo.src = '../../image/logo.png';
+  imgLogo.src = logo;
   imgLogo.alt = 'logoFatFit';
 
   imgBell.className = 'iconBellHeader';
-  imgBell.src = '../../icon/bell.png';
+  imgBell.src = bell;
   imgBell.alt = 'campana-notificacion';
 
   imgUserPhoto.className = 'iconUserPhotoHeader';
-  imgUserPhoto.src = '../../image/fotoUsuario.png';
+  imgUserPhoto.src = fotoUsuario;
   imgUserPhoto.id = 'userPhoto';
 
   divContainerUser.appendChild(imgBell);
@@ -42,16 +53,9 @@ export const header = () => {
 const createShareEdit = () => {
   const divContainerWall = document.createElement('dialog');
 
-  // Cerrar al hacer click el en dialog (incluído el backdrop) pero no el contenido
-  // divContainerWall.addEventListener('click', (event) => {
-  //   if (event.target === divContainerWall) {
-  //     divContainerWall.close();
-  //   }
-  // });
-
   const closePopupPublish = document.createElement('img');
   closePopupPublish.className = 'closePopupPublish';
-  closePopupPublish.setAttribute('src', '../../icon/cancel.png');
+  closePopupPublish.setAttribute('src', cancel);
   closePopupPublish.setAttribute('alt', 'Icono para cerrar Popup');
   closePopupPublish.addEventListener('click', () => {
     divContainerWall.close();
@@ -59,7 +63,7 @@ const createShareEdit = () => {
   // Creación de elementos para el formulario de publicación
   const imgUserForm = document.createElement('img');
   imgUserForm.classList.add('imgUser');
-  imgUserForm.setAttribute('src', '../../image/fotoUsuario.png');
+  imgUserForm.setAttribute('src', imgUser);
   imgUserForm.setAttribute('alt', 'imagen-usuario');
 
   const newPostText = document.createElement('textarea');
@@ -72,17 +76,17 @@ const createShareEdit = () => {
 
   const sharePhoto = document.createElement('img');
   sharePhoto.classList.add('share-icons');
-  sharePhoto.setAttribute('src', '../../icon/sharePhoto.png');
+  sharePhoto.setAttribute('src', photo);
   sharePhoto.setAttribute('alt', 'imagen-para-compartir');
 
   const shareMap = document.createElement('img');
   shareMap.classList.add('share-icons');
-  shareMap.setAttribute('src', '../../icon/shareMap.png');
+  shareMap.setAttribute('src', map);
   shareMap.setAttribute('alt', 'mapa-para-compartir');
 
   const shareVideo = document.createElement('img');
   shareVideo.classList.add('share-icons');
-  shareVideo.setAttribute('src', '../../icon/shareVideo.png');
+  shareVideo.setAttribute('src', video);
   shareVideo.setAttribute('alt', 'video-para-compartir');
 
   const buttonPost = document.createElement('button');
@@ -122,7 +126,7 @@ export const wallZone = () => {
   // Seccion de historias
   const storiesImg = document.createElement('img');
   storiesImg.className = 'historias';
-  storiesImg.setAttribute('src', '../../image/historias.png');
+  storiesImg.setAttribute('src', historias);
   storiesImg.setAttribute('alt', 'imagenes de historias');
   sectionNodo.append(storiesImg);
 
