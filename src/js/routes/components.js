@@ -13,6 +13,12 @@ import cancel from '../../public/icon/cancel.png';
 import photo from '../../public/icon/sharePhoto.png';
 import map from '../../public/icon/shareMap.png';
 import video from '../../public/icon/shareVideo.png';
+// imports de img para footer
+import home from '../../public/icon/homepage.png';
+import Search from '../../public/icon/Search.png';
+import add from '../../public/icon/Add.png';
+import likesCarrot from '../../public/icon/carrot.png';
+import logout from '../../public/icon/Logout.png';
 
 export const header = () => {
   const headerNodo = document.createElement('header');
@@ -443,7 +449,7 @@ export const footer = (navigateTo) => {
 
   /** ICONO DE HOME   */
   const imgIconHome = document.createElement('img');
-  imgIconHome.src = '../../icon/homepage.png';
+  imgIconHome.src = home;
   imgIconHome.className = 'iconFooter';
   imgIconHome.id = 'iconHome';
   imgIconHome.alt = 'icon-Home';
@@ -456,7 +462,7 @@ export const footer = (navigateTo) => {
 
   /** ICONO DE SEARCH  */
   const imgIconSearch = document.createElement('img');
-  imgIconSearch.src = '../../icon/Search.png';
+  imgIconSearch.src = Search;
   imgIconSearch.alt = 'icon-search';
   imgIconSearch.className = 'iconFooter';
   imgIconSearch.id = 'iconSearch';
@@ -469,7 +475,7 @@ export const footer = (navigateTo) => {
 
   /**  **********   AGREGAR POST      ************ */
   const imgIconAdd = document.createElement('img');
-  imgIconAdd.src = '../../icon/Add.png';
+  imgIconAdd.src = add;
   imgIconAdd.alt = 'icon-Add';
   imgIconAdd.className = 'iconFooter';
   imgIconAdd.id = 'iconAdd';
@@ -516,7 +522,7 @@ export const footer = (navigateTo) => {
 
   /**  **********   ICONO CARROT     ************ */
   const imgIconLikes = document.createElement('img');
-  imgIconLikes.src = '../../icon/carrot.png';
+  imgIconLikes.src = likesCarrot;
   imgIconLikes.alt = 'icon-Likes';
   imgIconLikes.className = 'iconFooter';
   imgIconLikes.id = 'iconLikes';
@@ -529,7 +535,7 @@ export const footer = (navigateTo) => {
 
   /**  **********   LOGOUT      ************ */
   const imgIconLogout = document.createElement('img');
-  imgIconLogout.src = '../../icon/Logout.png';
+  imgIconLogout.src = logout;
   imgIconLogout.alt = 'logout';
   imgIconLogout.className = 'iconFooter';
   imgIconLogout.id = 'logout';
