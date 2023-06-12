@@ -1,9 +1,11 @@
+import logo from '../../public/image/logo.png';
+
 export const verification = (navigateTo) => {
   const sectionEl = document.createElement('section');
   sectionEl.classList.add('section-verification');
   sectionEl.innerHTML = /* html */ `      
     <header class="header-login">
-         <img  class="logo-register" src="../../image/logo.png" alt="logo">
+         <img  class="logo-register" src="${logo}" alt="logo">
     </header>
      <main class="main-verification">
          <h1 class="titleGreetings"> Bienvenid@</h1>      
