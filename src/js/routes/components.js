@@ -2,6 +2,16 @@
 import {
   firebaseUser, savePost, getPosts, deletePost, signOutUser, addLike, removeLike, editPost,
 } from '../firebase.js';
+// import de post
+import option from '../../public/icon/editOelimin.png';
+import carrotWhite from '../../public/icon/carrot2.png';
+import carrotOrange from '../../public/icon/carrot.png';
+import iconComments from '../../public/icon/Comments.png';
+import share from '../../public/icon/share.png';
+import pencil from '../../public/icon/Pencil.png';
+import deleteicono from '../../public/icon/Delete.png';
+import back from '../../public/icon/Back.png';
+
 // imports de header y historias
 import logo from '../../public/image/logo.png';
 import bell from '../../public/icon/bell.png';
@@ -17,7 +27,6 @@ import video from '../../public/icon/shareVideo.png';
 import home from '../../public/icon/homepage.png';
 import Search from '../../public/icon/Search.png';
 import add from '../../public/icon/Add.png';
-import likesCarrot from '../../public/icon/carrot.png';
 import logout from '../../public/icon/Logout.png';
 
 export const header = () => {
@@ -156,7 +165,7 @@ export const wallZone = () => {
 
     const imgUserCopia = document.createElement('img');
     imgUserCopia.classList.add('imgUserCopia');
-    imgUserCopia.setAttribute('src', '../../image/fotoUsuario.png');
+    imgUserCopia.setAttribute('src', imgUser);
     containerImgAndUser.appendChild(imgUserCopia);
 
     // nombre del usuario
@@ -175,7 +184,7 @@ export const wallZone = () => {
     btnIconOption.classList.add('btnIconOption');
 
     const iconOptionsPost = document.createElement('img');
-    iconOptionsPost.src = '../../icon/editOelimin.png';
+    iconOptionsPost.src = option;
     iconOptionsPost.alt = 'icono para opción editar eliminar';
     iconOptionsPost.classList.add('iconOptionsPost');
     iconOptionsPost.id = 'iconOptionsPost';
@@ -195,7 +204,7 @@ export const wallZone = () => {
     li1.setAttribute('id', 'li1');
 
     const editIcon = document.createElement('img');
-    editIcon.setAttribute('src', '../../icon/Pencil.png');
+    editIcon.setAttribute('src', pencil);
     editIcon.classList.add('optionIcon');
 
     const btnEdit = document.createElement('button');
@@ -245,7 +254,7 @@ export const wallZone = () => {
     li2.setAttribute('id', 'li2');
 
     const deleteIcon = document.createElement('img');
-    deleteIcon.setAttribute('src', '../../icon/Delete.png');
+    deleteIcon.setAttribute('src', deleteicono);
     deleteIcon.classList.add('optionIcon');
     li2.appendChild(deleteIcon);
 
@@ -264,7 +273,7 @@ export const wallZone = () => {
 
     // Botón para cerrar el modal
     const closePopup = document.createElement('img');
-    closePopup.setAttribute('src', '../../icon/cancel.png');
+    closePopup.setAttribute('src', cancel);
     closePopup.classList.add('closeModal');
     modalPopupOption.appendChild(closePopup);
 
@@ -291,7 +300,7 @@ export const wallZone = () => {
     containerDeletePost.setAttribute('id', 'containerDeletePost');
 
     const iconBack = document.createElement('img');
-    iconBack.setAttribute('src', '../../icon/Back.png');
+    iconBack.setAttribute('src', back);
     iconBack.classList.add('iconBack');
     iconBack.setAttribute('id', 'iconBack');
 
@@ -368,7 +377,7 @@ export const wallZone = () => {
     divContainerIconPost.classList.add('containerIconPost');
 
     const iconCarrot = document.createElement('img');
-    iconCarrot.src = '../../icon/carrot2.png';
+    iconCarrot.src = carrotWhite;
     iconCarrot.alt = 'icono like';
     iconCarrot.classList.add('iconCarrot');
     iconCarrot.setAttribute('id', 'iconCarrot');
@@ -382,10 +391,10 @@ export const wallZone = () => {
     const setBtnImage = () => {
       if (postData.likes?.includes(user.displayName)) {
         // carrot white
-        iconCarrot.src = '../../icon/carrot.png';
+        iconCarrot.src = carrotOrange;
       } else {
         // carrot orange
-        iconCarrot.src = '../../icon/carrot2.png';
+        iconCarrot.src = carrotWhite;
       }
     };
 
@@ -408,14 +417,14 @@ export const wallZone = () => {
     });
 
     const iconComment = document.createElement('img');
-    iconComment.src = '../../icon/Comments.png';
+    iconComment.src = iconComments;
     iconComment.alt = 'icono comentario';
     iconComment.classList.add('iconPost');
     iconComment.setAttribute('id', 'iconComment');
     divContainerIconPost.appendChild(iconComment);
 
     const iconShare = document.createElement('img');
-    iconShare.src = '../../icon/share.png';
+    iconShare.src = share;
     iconShare.alt = 'icono compartir';
     iconShare.classList.add('iconPost');
     iconShare.setAttribute('id', 'iconShare');
@@ -522,7 +531,7 @@ export const footer = (navigateTo) => {
 
   /**  **********   ICONO CARROT     ************ */
   const imgIconLikes = document.createElement('img');
-  imgIconLikes.src = likesCarrot;
+  imgIconLikes.src = carrotOrange;
   imgIconLikes.alt = 'icon-Likes';
   imgIconLikes.className = 'iconFooter';
   imgIconLikes.id = 'iconLikes';
