@@ -55,6 +55,7 @@ export const loginTemplate = (navigateTo) => {
     firebaseLogin(email, password)
       .then((userCredential) => {
         if (userCredential) {
+          console.log(userCredential);
           navigateTo('/feed');
         } else {
           // alert('El usuario no está verificado. Por favor, verifique su correo electrónico');
@@ -74,16 +75,16 @@ export const loginTemplate = (navigateTo) => {
       // Se ha iniciado sesión exitosamente
         const credential = GoogleAuthProvider.credentialFromResult(result);
         console.log(credential);
-        const token = credential.accessToken;
-        const user = result.user;
+        // const token = credential.accessToken;
+        // const user = result.user;
         navigateTo('/feed');
       })
       .catch((error) => {
       // Hubo un error al iniciar sesión con Google
-        const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        // const email = error.email;
+        // const credential = GoogleAuthProvider.credentialFromError(error);
         console.log(errorMessage);
       // Maneja el error de acuerdo a tus necesidades
       });

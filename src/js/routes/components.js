@@ -66,6 +66,7 @@ export const header = () => {
 
 /** **************** ZONA DE MURO DE PUBLICACIONES**************** */
 const createShareEdit = () => {
+  // contenedor de color naranja de la publicacion
   const divContainerWall = document.createElement('dialog');
 
   const closePopupPublish = document.createElement('img');
@@ -190,7 +191,7 @@ export const wallZone = () => {
     iconOptionsPost.id = 'iconOptionsPost';
     btnIconOption.appendChild(iconOptionsPost);
 
-    // Modal para opciones de editar y eliminar
+    // contenedor de Modal para opciones de editar y eliminar
     const modalPopupOption = document.createElement('div');
     modalPopupOption.classList.add('modalPopupOption');
 
@@ -214,12 +215,13 @@ export const wallZone = () => {
     btnEdit.textContent = 'Editar';
 
     const shareEditBox = createShareEdit();
-
+    // obtener el textarea de shareEditBox
     const textarea = shareEditBox.querySelector('.containerCreatePost');
     textarea.value = postData.content;
 
     const formShare = shareEditBox.querySelector('#form-post');
 
+    // manejando el envio del formulario
     const handleFormSubmit = async (event) => {
       event.preventDefault(); // Previene el comportamiento predeterminado del formulario
 
@@ -271,7 +273,7 @@ export const wallZone = () => {
 
     modalPopupOption.appendChild(ulModal);
 
-    // Botón para cerrar el modal
+    // Nodo de botón para cerrar el modal de option de editar y eliminar
     const closePopup = document.createElement('img');
     closePopup.setAttribute('src', cancel);
     closePopup.classList.add('closeModal');
@@ -286,10 +288,11 @@ export const wallZone = () => {
     divContainerPostElement.appendChild(postElement);
     divContainerPostElement.appendChild(shareEditBox);
 
-    // Funciones del modal
+    // Funciones del modal para visualizar opciones (puntos vertical)
     btnIconOption.addEventListener('click', () => {
       modalPopupOption.style.display = 'block';
     });
+    // Funcion para cerrar el contendedor modal
     closePopup.addEventListener('click', () => {
       modalPopupOption.style.display = 'none';
     });
@@ -342,7 +345,7 @@ export const wallZone = () => {
       modalPopupOption.style.display = 'none';
     });
 
-    // funcion para regresar a las opciones de borarra o editar
+    // funcion para regresar a las opciones de borarr o editar
     btnBack.addEventListener('click', () => {
       containerDeletePost.style.display = 'none';
     });
@@ -351,7 +354,7 @@ export const wallZone = () => {
 
     const btnsDeleteSure = containerDeletePost.querySelector('.btnSure');
     btnsDeleteSure.addEventListener('click', () => {
-      // llamar a la funcion delte
+      // llamar a la funcion delete
       deletePost(postId);
       divContainerPostElement.remove();
     });
